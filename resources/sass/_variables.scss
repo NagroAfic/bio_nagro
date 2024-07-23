@@ -1,0 +1,26 @@
+// Body
+$body-bg: #f8fafc;
+
+// Typography
+$font-family-sans-serif:  "Bitter", serif;
+$font-size-base: 0.9rem;
+$line-height-base: 1.6;
+
+$primary_color_web : #84bc26;
+$text_color_web : #5d5d5d;
+
+.btn-primary{
+    background-color: $primary_color_web !important;
+    border: 0px !important;
+}
+
+.text-truncate {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+//
+$primary_color_aequipment_web : #852922;
+$secondary_color_aequipment_web : #d1a046;
