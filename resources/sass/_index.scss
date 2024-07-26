@@ -16,6 +16,10 @@
 
 .about{
     position: relative;
+    background: url('../../public/images/bg_nosotros.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     &::before{
         content: '';
         position: absolute;
@@ -71,7 +75,7 @@
 }
 
 .services{
-    background: url('../../public/images/servicios_m.jpg');
+    //background: url('../../public/images/servicios_m.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -121,9 +125,10 @@
 
 @media(min-width: 1200px){
     .header{
-        height: 650px;
+        height: 100vh;
     }
     .about{
+        height: 100vh;
         & .box-about{
             height: 260px;
         }

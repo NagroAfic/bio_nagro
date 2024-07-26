@@ -2,8 +2,8 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h2 class="text-white">Servicios</h2>
-                <p class="text-white">Explora nuestros servicios que brindamos</p>
+                <h2 >Servicios</h2>
+                <p >Explora nuestros servicios que brindamos</p>
             </div>
             <div class="col-md-6 col-xxl-4 my-2">
                 <div class="w-100">
