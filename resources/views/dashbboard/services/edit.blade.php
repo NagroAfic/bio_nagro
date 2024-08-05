@@ -12,10 +12,10 @@
         <div class="col-12">
             <div class="card shadow mb-4">
                 <div class="card-header py-3 d-flex justify-content-between align-items-center">
-                    <h3 class="m-0 font-weight-bold text-primary">Crear Marca</h3>
+                    <h3 class="m-0 font-weight-bold text-primary">Crear servicio</h3>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('marcas.store') }}" method="POST" enctype="multipart/form-data" novalidate>
+                    <form action="{{ route('servicios.store') }}" method="POST" enctype="multipart/form-data" novalidate>
                         @csrf
                         <div class="row">
                             <div class="col-12">
@@ -53,7 +53,7 @@
                             </div>
                             <div class="col-12">
                                 <div class="form-group">
-                                    <label for="">Logo<span class="text-danger">*</span></label>
+                                    <label for="">Portada<span class="text-danger">*</span></label>
                                     <input type="file" name="imagen_principal" id="" accept=".jpg,.png">
                                 </div>
                             </div>

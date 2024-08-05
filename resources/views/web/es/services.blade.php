@@ -52,4 +52,10 @@
             </div>
         </div>
     </div>
+    <div class="service_algas_rigth">
+        <img src="{{ asset('images/algas.png') }}" width="100%" alt="">
+    </div>
+    <div class="service_algas_left">
+        <img src="{{ asset('images/algas.png') }}" width="100%" alt="">
+    </div>
 </section>

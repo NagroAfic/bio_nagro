@@ -19,7 +19,7 @@ class ProductController extends Controller
     {
         //
         $products = Product::leftJoin('brands','products.brand_id','=','brands.id')
-                            ->select('products.es_title','products.es_description','products.status as product_status','brands.name as brand_name')->get();
+                            ->select('products.es_title','products.es_description','products.status as product_status','brands.es_title as brand_name')->get();
         return view('dashbboard.products.index')->with('products',$products);
     }
 
@@ -77,7 +77,7 @@ class ProductController extends Controller
             if(!empty($request->video_youtube)){
                 $product->embed_video = $request->video_youtube;
             }
-            
+
             $rutaImagenPrincipal=$request->imagen_principal->store("producto",'public');
             $product->url_image = $rutaImagenPrincipal;
             $product->save();

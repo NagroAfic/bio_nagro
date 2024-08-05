@@ -18,8 +18,10 @@ return new class extends Migration
          */
         Schema::create('brands', function (Blueprint $table) {
             $table->id();
-            $table->string("name");
-            $table->string("description");
+            $table->string("es_title");
+            $table->string("es_description");
+            $table->string("en_title")->nullable();
+            $table->string("en_description")->nullable();
             $table->text("url_image");
             $table->boolean("status")->default(1);
             $table->timestamps();

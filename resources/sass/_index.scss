@@ -60,7 +60,12 @@
 .form-price{
     position: relative;
     padding-top: 40px;
-    height: 550px;
+    padding-bottom: 40px;
+    background: url('../../public/images/servicios_m.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: auto;
     &::before{
         content: '';
         position: absolute;
@@ -75,12 +80,10 @@
 }
 
 .services{
-    //background: url('../../public/images/servicios_m.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    position: relative;
     padding: 20px 0px;
     min-height: 450px;
+    overflow: hidden;
     & .box-services{
         background-color: white;
     }
@@ -88,6 +91,22 @@
         border-radius: 100px;
         width: 38px;
         height: 38px;
+    }
+    & .service_algas_left{
+        position: absolute;
+        width: 180px;
+        top: 50%;
+        left: 5%;
+        transform: translate(-50%, -50%);
+        z-index: -1;
+    }
+    & .service_algas_rigth{
+        position: absolute;
+        width: 80px;
+        top: 70%;
+        right: -11%;
+        transform: translate(-50%, -50%) scaleX(-1);
+        z-index: -1;
     }
 }
 .header-servicios{
@@ -121,6 +140,12 @@
             margin-bottom: 30px;
         }
     }
+    .services{
+        & .service_algas_rigth{
+            width: 123px;
+            right: -8%;
+        }
+    }
 }
 
 @media(min-width: 1200px){
@@ -131,6 +156,22 @@
         height: 100vh;
         & .box-about{
             height: 260px;
+        }
+    }
+    .services{
+        & .service_algas_left{
+            position: absolute;
+            width: 180px;
+            top: 50%;
+            left: 5%;
+            transform: translate(-50%, -50%);
+        }
+        & .service_algas_rigth{
+            position: absolute;
+            width: 180px;
+            top: 50%;
+            right: -6%;
+            transform: translate(-50%, -50%) scaleX(-1);
         }
     }
 }

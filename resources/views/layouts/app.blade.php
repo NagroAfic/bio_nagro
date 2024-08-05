@@ -95,8 +95,8 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Componentes:</h6>
-                        <a class="collapse-item" href="utilities-color.html">Crear</a>
-                        <a class="collapse-item" href="utilities-color.html">Listado</a>
+                        <a class="collapse-item" href="{{ route('servicios.create') }}">Crear</a>
+                        <a class="collapse-item" href="{{ route('servicios.index') }}">Listado</a>
                     </div>
                 </div>
             </li>

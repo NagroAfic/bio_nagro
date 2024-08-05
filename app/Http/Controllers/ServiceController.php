@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Brand;
+use App\Models\Service;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 
-class BrandController extends Controller
+class ServiceController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +17,8 @@ class BrandController extends Controller
     public function index()
     {
         //
-        $brands = Brand::get();
-        return view('dashbboard.brands.index')->with('brands',$brands);
+        $services = Service::get();
+        return view('dashbboard.services.index')->with('services',$services);
     }
 
     /**
@@ -29,7 +29,7 @@ class BrandController extends Controller
     public function create()
     {
         //
-        return view('dashbboard.brands.create');
+        return view('dashbboard.services.create');
     }
 
     /**
@@ -46,51 +46,55 @@ class BrandController extends Controller
             //CODIGO REQUERIDO
             if(empty($request->es_title)){
                 Session::flash('danger_message', 'El titulo en español es requerido');
-                return redirect()->action([BrandController::class, 'create']);
+                return redirect()->action([ServiceController::class, 'create']);
             }
 
             if(empty($request->es_description)){
                 Session::flash('danger_message', 'La descripción en español es requerido');
-                return redirect()->action([BrandController::class, 'create']);
+                return redirect()->action([ServiceController::class, 'create']);
             }
 
-            if(empty($request->imagen_principal)){
-                Session::flash('danger_message', 'El producto necesita una imagen');
-                return redirect()->action([BrandController::class, 'create']);
-            }
-
-            $brand = new Brand();
-            $brand->es_title = $request->es_title;
-            $brand->es_description = $request->es_description;
+            $service = new Service();
+            $service->es_title = $request->es_title;
+            $service->es_description = $request->es_description;
 
             if(!empty($request->en_title)){
-                $brand->en_title = $request->en_title;
+                $service->en_title = $request->en_title;
             }
 
             if(!empty($request->en_description)){
-                $brand->en_description = $request->en_description;
+                $service->en_description = $request->en_description;
             }
 
-            $rutaImagenPrincipal=$request->imagen_principal->store("brand",'public');
-            $brand->url_image = $rutaImagenPrincipal;
-            $brand->save();
+            if(isset($request->imagen_principal)){
+                $rutaImagenPrincipal=$request->imagen_principal->store("service",'public');
+                $service->url_portada = $rutaImagenPrincipal;
+            }
+
+            if(isset($request->embed_video)){
+                $embed_video=$request->embed_video;
+                $service->embed_video = $embed_video;
+            }
+
+
+            $service->save();
             DB::commit();
-            return redirect()->action([BrandController::class, 'index']);
+            return redirect()->action([ServiceController::class, 'index']);
         } catch (\Throwable $th) {
             //throw $th;
             DB::rollback();
             Session::flash('danger_message', 'Muestre al administrador del sistema el siguiente mensaje: '.$th->getMessage());
-            return redirect()->action([BrandController::class, 'create']);
+            return redirect()->action([ServiceController::class, 'create']);
         }
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Brand  $brand
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Brand $brand)
+    public function show(Service $service)
     {
         //
     }
@@ -98,23 +102,22 @@ class BrandController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Brand  $brand
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Brand $brand)
+    public function edit(Service $service)
     {
         //
-        return view('dashbboard.brands.edit')->with('brand',$brand);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Brand  $brand
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Brand $brand)
+    public function update(Request $request, Service $service)
     {
         //
         try {
@@ -122,48 +125,48 @@ class BrandController extends Controller
             //CODIGO REQUERIDO
             if(empty($request->es_title)){
                 Session::flash('danger_message', 'El titulo en español es requerido');
-                return redirect()->action([BrandController::class, 'create']);
+                return redirect()->action([ServiceController::class, 'create']);
             }
 
             if(empty($request->es_description)){
                 Session::flash('danger_message', 'La descripción en español es requerido');
-                return redirect()->action([BrandController::class, 'create']);
+                return redirect()->action([ServiceController::class, 'create']);
             }
 
-            $brand->es_title = $request->es_title;
-            $brand->es_description = $request->es_description;
+            $service->es_title = $request->es_title;
+            $service->es_description = $request->es_description;
 
             if(!empty($request->en_title)){
-                $brand->en_title = $request->en_title;
+                $service->en_title = $request->en_title;
             }
 
             if(!empty($request->en_description)){
-                $brand->en_description = $request->en_description;
+                $service->en_description = $request->en_description;
             }
 
             if(isset($request->imagen_principal)){
-                $rutaImagenPrincipal=$request->imagen_principal->store("brand",'public');
-                $brand->url_image = $rutaImagenPrincipal;
+                $rutaImagenPrincipal=$request->imagen_principal->store("service",'public');
+                $service->url_portada = $rutaImagenPrincipal;
             }
 
-            $brand->save();
+            $service->save();
             DB::commit();
-            return redirect()->action([BrandController::class, 'index']);
+            return redirect()->action([ServiceController::class, 'index']);
         } catch (\Throwable $th) {
             //throw $th;
             DB::rollback();
             Session::flash('danger_message', 'Muestre al administrador del sistema el siguiente mensaje: '.$th->getMessage());
-            return redirect()->action([BrandController::class, 'edit']);
+            return redirect()->action([ServiceController::class, 'edit']);
         }
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Brand  $brand
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Brand $brand)
+    public function destroy(Service $service)
     {
         //
     }

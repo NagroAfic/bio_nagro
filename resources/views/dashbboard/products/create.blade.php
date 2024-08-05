@@ -63,9 +63,9 @@
                             <div class="col-12">
                                 <div class="form-group">
                                     <label for="">Marca<span class="text-danger">*</span></label>
-                                    <select name="brand_id" id="">
+                                    <select name="brand_id" id="" class="form-control">
                                         @foreach ($brands as $brand)
-                                            <option value="{{$brand->id}}">{{$brand->name}}</option>
+                                            <option value="{{$brand->id}}">{{$brand->es_title}}</option>
                                         @endforeach
                                     </select>
                                 </div>

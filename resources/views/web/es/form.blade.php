@@ -2,8 +2,8 @@
     <div class="container">
         <div class="row">
             <div class="col-12 col-md-6">
-                <h2>Cotiza Rápidamente y <br> Sin Compromisos</h2>
-                <p>Completa el formulario y recibe una cotización personalizada en solo unos minutos. <br> ¡Es rápido, fácil y sin compromiso!</p>
+                <h2 class="text-white">Cotiza Rápidamente y <br> Sin Compromisos</h2>
+                <p class="text-white">Completa el formulario y recibe una cotización personalizada en solo unos minutos. <br> ¡Es rápido, fácil y sin compromiso!</p>
             </div>
             <div class="col-12 col-md-6 d-flex justify-align-center align-items-center">
                 <div class="card mb-4">

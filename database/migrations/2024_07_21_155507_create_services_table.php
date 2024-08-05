@@ -17,11 +17,10 @@ return new class extends Migration
             $table->id();
             $table->string('es_title');
             $table->string('en_title');
-            $table->string('url_seo');
-            $table->string('description_seo');
             $table->string('es_description');
             $table->string('en_description');
             $table->text('url_portada');
+            $table->boolean('status')->default(1);
             $table->text('embed_video')->nullable();
             $table->timestamps();
         });
