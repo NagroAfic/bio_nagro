@@ -10,6 +10,10 @@ use Illuminate\Support\Facades\Session;
 
 class ProductController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -79,7 +83,7 @@ class ProductController extends Controller
             }
 
             $rutaImagenPrincipal=$request->imagen_principal->store("producto",'public');
-            $product->url_image = $rutaImagenPrincipal;
+            $product->url_image = "/storage/".$rutaImagenPrincipal;
             $product->save();
             DB::commit();
             return redirect()->action([ProductController::class, 'index']);

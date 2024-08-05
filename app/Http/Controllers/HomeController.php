@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Service;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -24,20 +25,23 @@ class HomeController extends Controller
     public function index($lang)
     {
         $page_traduction = strtoupper($lang);
-        return view('web.index')->with('page_traduction',$page_traduction);
+        $servicios = Service::where('status',1)->get();
+        
+        return view('web.index')->with('page_traduction',$page_traduction)->with('servicios',$servicios);
     }
 
     public function services($lang)
     {
         $page_traduction = strtoupper($lang);
-        return view('web.services')->with('page_traduction',$page_traduction);
+        $servicios = Service::where('status',1)->get();
+        return view('web.services')->with('page_traduction',$page_traduction)->with('servicios',$servicios);;
     }
 
 
-    public function service($lang,$url_seo)
+    public function service($lang,Service $service)
     {
         $page_traduction = strtoupper($lang);
-        return view('web.es.servicios.index')->with('page_traduction',$page_traduction);
+        return view('web.es.servicios.index')->with('page_traduction',$page_traduction)->with('service',$service);
     }
 
     public function redirectToHome()

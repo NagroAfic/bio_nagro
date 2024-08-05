@@ -9,6 +9,13 @@ use Illuminate\Support\Facades\Session;
 
 class BrandController extends Controller
 {
+
+    
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -72,7 +79,7 @@ class BrandController extends Controller
             }
 
             $rutaImagenPrincipal=$request->imagen_principal->store("brand",'public');
-            $brand->url_image = $rutaImagenPrincipal;
+            $brand->url_image = "/storage/".$rutaImagenPrincipal;
             $brand->save();
             DB::commit();
             return redirect()->action([BrandController::class, 'index']);

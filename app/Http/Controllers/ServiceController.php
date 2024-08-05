@@ -9,6 +9,10 @@ use Illuminate\Support\Facades\Session;
 
 class ServiceController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -68,7 +72,7 @@ class ServiceController extends Controller
 
             if(isset($request->imagen_principal)){
                 $rutaImagenPrincipal=$request->imagen_principal->store("service",'public');
-                $service->url_portada = $rutaImagenPrincipal;
+                $service->url_portada = "/storage/".$rutaImagenPrincipal;
             }
 
             if(isset($request->embed_video)){
@@ -146,7 +150,7 @@ class ServiceController extends Controller
 
             if(isset($request->imagen_principal)){
                 $rutaImagenPrincipal=$request->imagen_principal->store("service",'public');
-                $service->url_portada = $rutaImagenPrincipal;
+                $service->url_portada = "/storage/".$rutaImagenPrincipal;
             }
 
             $service->save();
