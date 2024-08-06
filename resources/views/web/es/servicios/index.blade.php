@@ -6,7 +6,16 @@
     <div class="container">
         <div class="row">
             <div class="col-12 col-md-8">
-                {{$service->es_description}}
+                <div class="row">
+                    <div class="col-12">
+                        {{$service->es_description}}
+                    </div>
+                    @if ($service->embed_video != null)
+                    <div class="col-12">
+                        <p>Video relacionado</p>
+                    </div>
+                    @endif
+                </div>
             </div>
             <div class="col-12 col-md-4">
                 <div class="row">
