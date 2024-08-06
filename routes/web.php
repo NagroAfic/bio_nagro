@@ -26,7 +26,7 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('/', 'redirectToHome')->name('redirectHome');
     Route::get('/{lang}','index')->name('home');
     Route::get('/{lang}/services','services')->name('services');
-    Route::get('/{lang}/service/{service}','services')->name('service.index');
+    Route::get('/{lang}/service/{service}','service')->name('service.index');
 });
 
 Route::controller(DashboardController::class)->group(function () {
