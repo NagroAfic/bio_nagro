@@ -7,10 +7,10 @@
     </header>
     <div class="container">
         <div class="row">
-            <div class="col-12 col-md-8">
+            <div class="col-12 col-md-7">
                 <div class="row">
                     <div class="col-12">
-                        {{$service->es_description}}
+                        {!!$service->es_description!!}
                     </div>
                     @if ($service->embed_video != null)
                     <div class="col-12">
@@ -19,8 +19,8 @@
                     @endif
                 </div>
             </div>
-            <div class="col-12 col-md-4">
-                <div class="row">
+            <div class="col-12 col-md-5">
+                <div class="row services">
                     @foreach ($servicios as $servicio)
                     <div class="col-md-6 col-xxl-4 my-2">
                         <div class="w-100">
