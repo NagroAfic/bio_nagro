@@ -22,7 +22,7 @@
             <div class="col-12 col-md-5">
                 <div class="row services">
                     @foreach ($servicios as $servicio)
-                    <div class="col-md-6 col-xxl-4 my-2">
+                    <div class="col-12 my-2">
                         <div class="w-100">
                             <div class="box-services d-flex flex-wrap shadow-sm">
                                 <div class="img-box w-25">
