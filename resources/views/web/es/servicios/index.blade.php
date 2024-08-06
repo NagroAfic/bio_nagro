@@ -1,7 +1,9 @@
 @extends('layouts.web')
 @section('content')
     <header class="header-servicios px-4 d-flex justify-content-center align-items-center" style="background-image: url({{$service->url_portada}})">
-        <h1 class="text-center text-white">Servicio 1</h1>
+        <h1 class="text-center text-white">
+            {{$service->es_title}}
+        </h1>
     </header>
     <div class="container">
         <div class="row">
