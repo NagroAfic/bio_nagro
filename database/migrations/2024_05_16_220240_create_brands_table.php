@@ -20,8 +20,8 @@ return new class extends Migration
             $table->id();
             $table->string("es_title");
             $table->string("es_description");
-            $table->string("en_title")->nullable();
-            $table->string("en_description")->nullable();
+            $table->longText("en_title")->nullable();
+            $table->longText("en_description")->nullable();
             $table->text("url_image");
             $table->boolean("status")->default(1);
             $table->timestamps();

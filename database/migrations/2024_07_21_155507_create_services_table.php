@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('es_title');
             $table->string('en_title');
-            $table->string('es_description');
-            $table->string('en_description');
+            $table->longText('es_description');
+            $table->longText('en_description');
             $table->text('url_portada');
             $table->boolean('status')->default(1);
             $table->text('embed_video')->nullable();
