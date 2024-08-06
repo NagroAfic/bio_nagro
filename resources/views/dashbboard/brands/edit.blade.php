@@ -55,7 +55,7 @@
                             <div class="col-12">
                                 <div class="form-group">
                                     <label for="">Logo<span class="text-danger">*</span></label>
-                                    <input type="file" name="imagen_principal" id="" accept=".jpg,.png">
+                                    <input type="file" name="imagen_principal" id="" accept=".jpg,.jpeg,.webpg,.png">
                                 </div>
                             </div>
                             <div class="col-12">
