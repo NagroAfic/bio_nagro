@@ -26,7 +26,7 @@ class HomeController extends Controller
     {
         $page_traduction = strtoupper($lang);
         $servicios = Service::where('status',1)->get();
-        
+
         return view('web.index')->with('page_traduction',$page_traduction)->with('servicios',$servicios);
     }
 
@@ -41,7 +41,8 @@ class HomeController extends Controller
     public function service($lang,Service $service)
     {
         $page_traduction = strtoupper($lang);
-        return view('web.es.servicios.index')->with('page_traduction',$page_traduction)->with('service',$service);
+        $servicios = Service::where('status',1)->get();
+        return view('web.es.servicios.index')->with('page_traduction',$page_traduction)->with('service',$service)->with('servicios',$servicios);
     }
 
     public function redirectToHome()
