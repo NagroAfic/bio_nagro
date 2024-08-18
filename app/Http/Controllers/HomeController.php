@@ -31,6 +31,7 @@ class HomeController extends Controller
         $marcas = Brand::where('status',1)->get();
         $marcas_id = Brand::where('status',1)->pluck('id');
         $productos = Product::where('status')->whereIn('brand_id',$marcas_id)->get();
+        return response()->json(["marcas_id" => $marcas_id,"productos"=>$productos], 200);
 
         return view('web.index')->with('page_traduction',$page_traduction)->with('marcas',$marcas)->with('productos',$productos)->with('servicios',$servicios);
     }

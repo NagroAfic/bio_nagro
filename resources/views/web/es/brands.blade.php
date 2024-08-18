@@ -14,12 +14,13 @@
                                 </div>
                             </div>
                             @foreach($productos as $product)
+                            @if($key->id == $product->brand_id)
                             <div class="col-12 w-100 mt-5">
                                 <div class="swiper @if($key->es_title == "BSCLAB") biosac-swiper @else avequipment-swiper @endif  pb-5">
                                     <div class="swiper-wrapper">
                                         <div class="swiper-slide">
                                             <div class="list-product pb-2 shadow-sm rounded">
-                                                <img src="{{ asset('images/MERGO-74.jpg') }}" class="rounded-top" alt="" width="100%">
+                                                <img src="{{ $product->url_image }}" class="rounded-top" alt="" width="100%">
                                                 <p class="fw-bold ms-2 mt-2 mb-1">{{$product->es_title}}</p>
                                                 <a href="#" class="btn ms-2 btn-primary">Consultar</a>
                                             </div>
@@ -28,6 +29,7 @@
                                     <div class="swiper-pagination d-none"></div>
                                 </div>
                             </div>
+                            @endif
                             @endforeach
                     </div>
                 </div>
