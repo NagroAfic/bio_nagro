@@ -22,7 +22,7 @@
                                             <div class="list-product pb-2 shadow-sm rounded">
                                                 <img src="{{ $product->url_image }}" class="rounded-top" alt="" width="100%">
                                                 <p class="fw-bold ms-2 mt-2 mb-1">{{$product->es_title}}</p>
-                                                <a href="{{ route('product_home', ['lang'=>$lang , 'product'=>$product->url_seo]) }}" class="btn ms-2 btn-primary">Consultar</a>
+                                                <a href="{{ route('product_home', ['lang'=>"es" , 'product'=>$product->url_seo]) }}" class="btn ms-2 btn-primary">Consultar</a>
                                             </div>
                                         </div>
                                     </div>
