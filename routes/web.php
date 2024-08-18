@@ -25,8 +25,9 @@ Auth::routes();
 Route::controller(HomeController::class)->group(function () {
     Route::get('/', 'redirectToHome')->name('redirectHome');
     Route::get('/{lang}','index')->name('home');
-    Route::get('/{lang}/services','services')->name('services');
-    Route::get('/{lang}/service/{service}','service')->name('service.index');
+    Route::get('/{lang}/servicios','services')->name('services');
+    Route::get('/{lang}/servicios/{service}','service')->name('service.index');
+    Route::get('/{lang}/marcas','services')->name('services');
 });
 
 Route::controller(DashboardController::class)->group(function () {
@@ -37,6 +38,8 @@ Route::controller(ProductController::class)->group(function () {
     Route::get('/dashboard/productos/lista', 'index')->name('productos.index');
     Route::get('/dashboard/productos/crear', 'create')->name('productos.create');
     Route::post('/dashboard/productos/guardar', 'store')->name('productos.store');
+    Route::get('/dashboard/productos/{product}/editar', 'edit')->name('productos.edit');
+    Route::put('/dashboard/productos/{product}', 'update')->name('productos.update');
 });
 
 Route::controller(BrandController::class)->group(function () {

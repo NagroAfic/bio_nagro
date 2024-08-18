@@ -26,7 +26,6 @@ class HomeController extends Controller
     {
         $page_traduction = strtoupper($lang);
         $servicios = Service::where('status',1)->get();
-
         return view('web.index')->with('page_traduction',$page_traduction)->with('servicios',$servicios);
     }
 
@@ -34,9 +33,15 @@ class HomeController extends Controller
     {
         $page_traduction = strtoupper($lang);
         $servicios = Service::where('status',1)->get();
-        return view('web.services')->with('page_traduction',$page_traduction)->with('servicios',$servicios);;
+        return view('web.services')->with('page_traduction',$page_traduction)->with('servicios',$servicios);
     }
 
+    public function brands($lang)
+    {
+        $page_traduction = strtoupper($lang);
+        $servicios = Service::where('status',1)->get();
+        return view('web.brand')->with('page_traduction',$page_traduction)->with('servicios',$servicios);
+    }
 
     public function service($lang,Service $service)
     {
@@ -49,8 +54,6 @@ class HomeController extends Controller
     {
         // Puedes definir un valor por defecto para lang
         $defaultLang = 'es';
-
-        // Redirigir a la ruta 'home' con el idioma por defecto
         return redirect()->route('home', ['lang' => $defaultLang]);
     }
 }

@@ -20,6 +20,12 @@
                         @method('put')
                         <div class="row">
                             <div class="col-12">
+                                <div class="form-group">
+                                    <label for="">Descripción navegador<span class="text-danger">*</span></label>
+                                    <input type="text" name="description_seo" id="" class="form-control" maxlength="120">
+                                </div>
+                            </div>
+                            <div class="col-12">
                                 <h5 class="fw-bold"><u>Sección Español</u></h5>
                             </div>
                             <div class="col-12">

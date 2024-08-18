@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('services', function (Blueprint $table) {
             $table->id();
+            $table->text('description_seo')->nullable();
+            $table->string('url_seo')->nullable();
             $table->string('es_title');
             $table->string('en_title');
             $table->longText('es_description');

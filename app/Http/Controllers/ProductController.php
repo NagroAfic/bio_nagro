@@ -69,7 +69,9 @@ class ProductController extends Controller
             $product = new Product();
             $product->es_title = $request->es_title;
             $product->es_description = $request->es_description;
-
+            $product->url_seo = self::limpiarTexto($request->es_title);
+            $product->description_seo = $request->description_seo;
+            $product->brand_id = $request->brand_id;
             if(!empty($request->en_title)){
                 $product->en_title = $request->en_title;
             }
@@ -115,6 +117,8 @@ class ProductController extends Controller
     public function edit(Product $product)
     {
         //
+        $brands = Brand::where('status',1)->get();
+        return view('dashbboard.products.edit')->with('product',$product)->with('brands',$brands);
     }
 
     /**
@@ -127,6 +131,54 @@ class ProductController extends Controller
     public function update(Request $request, Product $product)
     {
         //
+        try {
+            DB::beginTransaction();
+            //CODIGO REQUERIDO
+            if(empty($request->es_title)){
+                Session::flash('danger_message', 'El titulo en español es requerido');
+                return redirect()->action([ProductController::class, 'create']);
+            }
+
+            if(empty($request->es_description)){
+                Session::flash('danger_message', 'La descripción en español es requerido');
+                return redirect()->action([ProductController::class, 'create']);
+            }
+
+            if(empty($request->imagen_principal)){
+                Session::flash('danger_message', 'El producto necesita una imagen');
+                return redirect()->action([ProductController::class, 'create']);
+            }
+
+            $product->es_title = $request->es_title;
+            $product->es_description = $request->es_description;
+            $product->url_seo = self::limpiarTexto($request->es_title);
+            $product->description_seo = $request->description_seo;
+            $product->brand_id = $request->brand_id;
+            if(!empty($request->en_title)){
+                $product->en_title = $request->en_title;
+            }
+
+            if(!empty($request->en_description)){
+                $product->en_description = $request->en_description;
+            }
+
+            if(!empty($request->video_youtube)){
+                $product->embed_video = $request->video_youtube;
+            }
+
+            if(isset($request->imagen_principal)){
+                $rutaImagenPrincipal=$request->imagen_principal->store("producto",'public');
+                $product->url_image = "/storage/".$rutaImagenPrincipal;
+            }
+            $product->save();
+            DB::commit();
+            return redirect()->action([ProductController::class, 'index']);
+        } catch (\Throwable $th) {
+            //throw $th;
+            DB::rollback();
+            Session::flash('danger_message', 'Muestre al administrador del sistema el siguiente mensaje: '.$th->getMessage());
+            return redirect()->action([ProductController::class, 'edit'],['product',$product]);
+        }
     }
 
     /**

@@ -69,6 +69,8 @@ class BrandController extends Controller
             $brand = new Brand();
             $brand->es_title = $request->es_title;
             $brand->es_description = $request->es_description;
+            $brand->url_seo = self::limpiarTexto($request->es_title);
+            $brand->description_seo = $request->description_seo;
 
             if(!empty($request->en_title)){
                 $brand->en_title = $request->en_title;
@@ -139,6 +141,8 @@ class BrandController extends Controller
 
             $brand->es_title = $request->es_title;
             $brand->es_description = $request->es_description;
+            $brand->url_seo = self::limpiarTexto($request->es_title);
+            $brand->description_seo =$request->description_seo;
 
             if(!empty($request->en_title)){
                 $brand->en_title = $request->en_title;
@@ -160,7 +164,7 @@ class BrandController extends Controller
             //throw $th;
             DB::rollback();
             Session::flash('danger_message', 'Muestre al administrador del sistema el siguiente mensaje: '.$th->getMessage());
-            return redirect()->action([BrandController::class, 'edit']);
+            return redirect()->action([BrandController::class, 'edit'],['brand'=>$brand]);
         }
     }
 

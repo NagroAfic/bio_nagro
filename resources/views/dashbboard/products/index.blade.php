@@ -18,6 +18,7 @@
                                     <th>Titulo</th>
                                     <th>Descripción</th>
                                     <th width="180px">Disponibilidad</th>
+                                    <th>Acciones</th>
                                 </tr>
                             </thead>
                             <tbody id="worker-table">
@@ -27,6 +28,7 @@
                                         <td>{{$key->es_title}}</td>
                                         <td>{!!$key->es_description!!}</td>
                                         <td>{{$key->product_status == 1 ? 'Disponible' : 'No disponible'}}</td>
+                                        <td><a href="{{ route('productos.edit', ['product'=>$key->id]) }}" class="btn btn-warning">Editar</a><</td>
                                     </tr>
                                 @endforeach
                             </tbody>
