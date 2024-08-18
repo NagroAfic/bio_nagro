@@ -11,7 +11,7 @@
         </div>
         <div class="col-12">
             <!-- Descripción del producto -->
-            {{$product->es_description}}
+            {!!$product->es_description!!}
         </div>
     </div>
 </div>
