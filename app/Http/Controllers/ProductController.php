@@ -23,7 +23,7 @@ class ProductController extends Controller
     {
         //
         $products = Product::leftJoin('brands','products.brand_id','=','brands.id')
-                            ->select('product.id','products.es_title','products.es_description','products.status as product_status','brands.es_title as brand_name')->get();
+                            ->select('products.id','products.es_title','products.es_description','products.status as product_status','brands.es_title as brand_name')->get();
         return view('dashbboard.products.index')->with('products',$products);
     }
 
