@@ -10,7 +10,7 @@
                     <div class="row">
                             <div class="col-12 d-flex justify-content-center">
                                 <div class="shadow-sm">
-                                    <img src="{{ $key->url_image }}" alt="" width="140px">
+                                    <img src="{{ $key->url_image }}" alt="" width="@if($key->es_title == "BSCLAB") 140px @else 310px @endif ">
                                 </div>
                             </div>
                             @foreach($productos as $product)
@@ -34,9 +34,11 @@
                     </div>
                 </div>
             </div>
+            @if($key->es_title == "BSCLAB")
             <div class="col-12 col-lg-2">
                 <div class="division"></div>
             </div>
+            @endif
             @endforeach
         </div>
     </div>
