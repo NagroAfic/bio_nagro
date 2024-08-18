@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Brand;
+use App\Models\Product;
 use App\Models\Service;
 use Illuminate\Http\Request;
 
@@ -26,7 +28,11 @@ class HomeController extends Controller
     {
         $page_traduction = strtoupper($lang);
         $servicios = Service::where('status',1)->get();
-        return view('web.index')->with('page_traduction',$page_traduction)->with('servicios',$servicios);
+        $marcas = Brand::where('status',1)->get();
+        $marcas_id = Brand::where('status',1)->pluck('id');
+        $productos = Product::where('status')->whereIn('brand_id',$marcas_id)->get();
+
+        return view('web.index')->with('page_traduction',$page_traduction)->with('marcas',$marcas)->with('productos',$productos)->with('servicios',$servicios);
     }
 
     public function services($lang)
