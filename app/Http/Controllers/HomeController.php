@@ -57,6 +57,12 @@ class HomeController extends Controller
         return view('web.es.servicios.index')->with('page_traduction',$page_traduction)->with('service',$service)->with('servicios',$servicios);
     }
 
+    function product_home($lang,Product $product)  {
+        $page_traduction = strtoupper($lang);
+        return view('web.product')->with('page_traduction',$page_traduction)->with('product',$product);
+    }
+
+
     public function redirectToHome()
     {
         // Puedes definir un valor por defecto para lang

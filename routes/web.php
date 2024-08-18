@@ -27,7 +27,8 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('/{lang}','index')->name('home');
     Route::get('/{lang}/servicios','services')->name('services');
     Route::get('/{lang}/servicios/{service}','service')->name('service.index');
-    Route::get('/{lang}/marcas','services')->name('services');
+    Route::get('/{lang}/marcas','brands')->name('brands');
+    Route::get('/{lang}/producto/{product:url_seo}','product_home')->name('product_home');
 });
 
 Route::controller(DashboardController::class)->group(function () {
