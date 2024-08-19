@@ -37,7 +37,17 @@
                                 <div class="col-12 mb-2">
                                     <div class="form-group">
                                         <label for="">Selecciona el producto</label>
-                                        <select name="" id="" class="form-control"></select>
+                                        <select name="" id="" class="form-control">
+                                            @foreach($productos as $key)
+                                                @if(isset($product))
+                                                    @if($key->id == $product->i)
+                                                    <option value="{{$product->es_title}}">{{$product->es_title}}</option>
+                                                    @endif
+                                                @else
+                                                    <option value="{{$key->es_title}}">{{$key->es_title}}</option>
+                                                @endif
+                                            @endforeach
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="col-6 mb-2">

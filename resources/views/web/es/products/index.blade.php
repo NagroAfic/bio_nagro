@@ -1,5 +1,8 @@
-<div class="container mt-5">
+<div class="container my-5">
     <div class="row">
+        <div class="col-12 mt-5">
+            <h2>{{$product->es_title}}</h2>
+        </div>
         <div class="col-12 d-flex justify-content-center align-items-center">
             <!-- Imagen del producto solo 1 -->
             <div class="product-img-visualization">

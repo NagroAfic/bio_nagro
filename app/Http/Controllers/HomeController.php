@@ -59,7 +59,9 @@ class HomeController extends Controller
 
     function product_home($lang,Product $product)  {
         $page_traduction = strtoupper($lang);
-        return view('web.product')->with('page_traduction',$page_traduction)->with('product',$product);
+        $marcas_id = Brand::where('status',1)->pluck('id');
+        $productos = Product::where('status',1)->select('id','brand_id','url_seo','es_title','en_title','url_image')->whereIn('brand_id',$marcas_id)->get();
+        return view('web.product')->with('page_traduction',$page_traduction)->with('productos',$productos)->with('product',$product);
     }
 
 
