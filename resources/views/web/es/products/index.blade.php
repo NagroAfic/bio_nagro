@@ -16,6 +16,9 @@
             <!-- Descripción del producto -->
             {!!$product->es_description!!}
         </div>
+        <div class="col-12">
+            <hr>
+        </div>
         <!--CARRUSEL-->
         <div class="col-12">
             <h3>Más productos de la marca</h3>

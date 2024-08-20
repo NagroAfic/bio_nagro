@@ -2,8 +2,8 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h2 >Servicios</h2>
-                <p >Explora nuestros servicios que brindamos</p>
+                <h2 class="wow slideInLeft">Servicios</h2>
+                <p class="wow slideInLeft">Explora nuestros servicios que brindamos</p>
             </div>
             @foreach ($servicios as $servicio)
             <div class="col-md-6 col-xxl-4 my-2">
