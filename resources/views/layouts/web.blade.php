@@ -13,6 +13,9 @@
     <link rel="dns-prefetch" href="//fonts.bunny.net">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    @yield('SEO')
+
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
