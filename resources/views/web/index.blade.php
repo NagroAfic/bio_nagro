@@ -14,8 +14,10 @@
 <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
 <script>
     var typed = new Typed('#element', {
-      strings: ['<i>First</i> sentence.', '&amp; a second sentence.'],
-      typeSpeed: 50,
+      strings: ['Calidad y precisión entregada en cada producto'],
+      typeSpeed: 30,
+      loop: true,
+      loopCount: Infinity,
     });
 </script>
 @endsection
