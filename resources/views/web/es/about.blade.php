@@ -1,4 +1,4 @@
-<section class="about">
+<section class="about" id="nosotros">
     <div class="container">
         <div class="row">
             <div class="col-md-4 d-flex justify-content-center align-items-center">

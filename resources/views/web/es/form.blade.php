@@ -1,4 +1,4 @@
-<section class="form-price">
+<section class="form-price" id="cotizacion">
     <div class="container">
         <div class="row">
             <div class="col-12 col-md-6">
