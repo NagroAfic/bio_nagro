@@ -130,6 +130,9 @@
     .header{
         background: url('../../public/images/bg_top_desktop.jpg');
         background-size: cover;
+        & h1{
+            font-size: 62px;
+        }
         & p{
             font-size: 30px;
         }
