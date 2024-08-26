@@ -43,7 +43,7 @@
                             <li class="nav-item"> <a href="{{ route('home' , ["lang" => "es"]) }}#marcas" class="nav-link">Marcas</a></li>
                             <li class="nav-item"> <a href="{{ route('services', ['lang'=>"es"]) }}" class="nav-link">Servicios</a></li>
                             <li class="nav-item"> <a href="{{ route('home' , ["lang" => "es"]) }}#cotizacion" class="nav-link">Cotización</a></li>
-                            <li class="nav-item"> <a href="" class="nav-link">Blog</a></li>
+                            <li class="nav-item"> <a href="{{ route('home' , ["lang" => "es"]) }}#blog" class="nav-link">Blog</a></li>
                         @else
                             <li class="nav-item"> <a href="" class="nav-link">About us</a></li>
                             <li class="nav-item"> <a href="" class="nav-link">Brands</a></li>
