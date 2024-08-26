@@ -28,7 +28,7 @@
 
     var typed = new Typed('#element', {
       strings: texto,
-      typeSpeed: 15,
+      typeSpeed: 60,
       loop: true,
       loopCount: Infinity,
     });
