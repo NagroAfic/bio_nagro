@@ -1,16 +1,12 @@
-<section class="services">
+<section class="services bg-services">
     <div class="container">
         <div class="row">
-            <div class="col-12">
-                <h2 class="wow animate__fadeInDown">Servicios</h2>
-                <p class="wow animate__fadeInDown">Explora nuestros servicios que brindamos</p>
-            </div>
             @foreach ($servicios as $servicio)
             <div class="col-md-6 col-xxl-4 my-2">
                 <div class="w-100">
                     <div class="box-services d-flex flex-wrap shadow-sm">
                         <div class="img-box w-25">
-                            <img src="{{ $servicio->url_portada }}" width="100%" alt="">
+                            <img src="{{ asset('images/MERGO-74.jpg') }}" width="100%" alt="">
                         </div>
                         <div class="w-75 d-flex justify-content-between align-items-center px-2">
                             <p class="mb-0 text-truncate">{{$servicio->es_title}}</p>
@@ -23,11 +19,5 @@
             </div>
             @endforeach
         </div>
-    </div>
-    <div class="service_algas_rigth">
-        <img src="{{ asset('images/algas.png') }}" width="100%" alt="">
-    </div>
-    <div class="service_algas_left">
-        <img src="{{ asset('images/algas.png') }}" width="100%" alt="">
     </div>
 </section>
