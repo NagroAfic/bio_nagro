@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Blog;
 use App\Models\Brand;
 use App\Models\Product;
 use App\Models\Service;
@@ -28,12 +29,15 @@ class HomeController extends Controller
     {
         $page_traduction = strtoupper($lang);
         $servicios = Service::where('status',1)->get();
+        $blogs = Blog::where('status',1)->get();
         $marcas = Brand::where('status',1)->get();
         $marcas_id = Brand::where('status',1)->pluck('id');
         $productos = Product::where('status',1)->select('id','brand_id','url_seo','es_title','en_title','url_image')->whereIn('brand_id',$marcas_id)->get();
         //return response()->json(["marcas_id" => $marcas_id,"productos"=>$productos], 200);
 
-        return view('web.index')->with('page_traduction',$page_traduction)->with('marcas',$marcas)->with('productos',$productos)->with('servicios',$servicios);
+        return view('web.index')->with('page_traduction',$page_traduction)
+                                ->with('marcas',$marcas)->with('productos',$productos)
+                                ->with('blogs',$blogs)->with('servicios',$servicios);
     }
 
     public function services($lang)

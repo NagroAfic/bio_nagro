@@ -6,6 +6,7 @@
         @include('web.es.services')
         @include('web.es.form')
         @include('web.es.brands')
+        @include('web.es.blog')
     @else
         @include('web.en.top')
     @endif
