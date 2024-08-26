@@ -63,7 +63,7 @@
     <footer class="footer">
         <div class="container">
             <div class="row">
-                <div class="col-md-8">
+                <div class="col-md-6">
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3905.2067584619626!2d-77.03487612704116!3d-11.820788037730177!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105cf57e0d6e02d%3A0x5471641c1a746075!2sBIOSERVICE%20CONSULTING%20%26%20LABORATORY!5e0!3m2!1ses-419!2spe!4v1724168433352!5m2!1ses-419!2spe" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
                 <div class="col-md-3">
