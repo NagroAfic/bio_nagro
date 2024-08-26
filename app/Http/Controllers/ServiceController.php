@@ -22,7 +22,7 @@ class ServiceController extends Controller
     {
         //
         $services = Service::get();
-        return view('dashbboard.services.index')->with('services',$services);
+        return view('dashbboard.servic.index')->with('services',$services);
     }
 
     /**
@@ -33,7 +33,7 @@ class ServiceController extends Controller
     public function create()
     {
         //
-        return view('dashbboard.services.create');
+        return view('dashbboard.servic.create');
     }
 
     /**
