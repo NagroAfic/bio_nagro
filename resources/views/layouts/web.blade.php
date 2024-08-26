@@ -85,7 +85,7 @@
                     </div>
                 </div>
                 <div class="col-12 d-flex justify-content-center align-items-center">
-                    <span class="text-white fw-light" style="font-size:12px"><i>Bioserviceclab</i></span>
+                    <span class="text-white fw-light" style="font-size:12px"><i>Copyright © Bioserviceclab 2024</i></span>
                 </div>
             </div>
         </div>
