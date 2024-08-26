@@ -19,7 +19,7 @@
                                         @foreach($productos as $product)
                                         @if($key->id == $product->brand_id)
                                         <div class="swiper-slide">
-                                            <div class="list-product pb-0 shadow-sm rounded">
+                                            <div class="list-product pb-0 shadow-sm rounded overflow-hidden">
                                                 <div class="w-100" style="height: 75%">
                                                     <img src="{{ $product->url_image }}" class="rounded-top" alt="" width="100%">
                                                 </div>

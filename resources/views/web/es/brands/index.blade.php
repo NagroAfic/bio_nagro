@@ -15,7 +15,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-3 col-sm-2 col-xl-4">
-                <div class="list-product pb-0 shadow-sm rounded">
+                <div class="list-product pb-0 shadow-sm rounded overflow-hidden">
                     <div class="w-100" style="height: 75%">
                         <img src="{{ $productO->url_image }}" class="rounded-top" alt="" width="100%">
                     </div>
