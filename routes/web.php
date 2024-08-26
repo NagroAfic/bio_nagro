@@ -52,10 +52,10 @@ Route::controller(BrandController::class)->group(function () {
 });
 
 Route::controller(ServiceController::class)->group(function () {
-    Route::get('/dashboard/servicios/lista', 'index')->name('servicios.index');
-    Route::get('/dashboard/servicios/crear', 'create')->name('servicios.create');
-    Route::post('/dashboard/servicios/guardar', 'store')->name('servicios.store');
-    Route::get('/dashboard/servicios/{service}/editar', 'edit')->name('servicios.edit');
-    Route::put('/dashboard/servicios/{service}', 'update')->name('servicios.update');
+    Route::get('/dashboard/servicios-util/lista', 'index')->name('servicios.index');
+    Route::get('/dashboard/servicios-util/crear', 'create')->name('servicios.create');
+    Route::post('/dashboard/servicios-util/guardar', 'store')->name('servicios.store');
+    Route::get('/dashboard/servicios-util/{service}/editar', 'edit')->name('servicios.edit');
+    Route::put('/dashboard/servicios-util/{service}', 'update')->name('servicios.update');
 
 });
