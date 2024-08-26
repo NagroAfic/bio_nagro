@@ -16,9 +16,13 @@
         <div class="row">
             <div class="col-md-3 col-sm-2 col-xl-4">
                 <div class="list-product pb-2 shadow-sm rounded">
-                    <img src="{{ asset('images/MERGO-74.jpg') }}" class="rounded-top" alt="" width="100%">
-                    <p class="fw-bold ms-2 mt-2 mb-1">Titulo del producto</p>
-                    <a href="#" class="btn ms-2 btn-primary">Consultar</a>
+                    <div class="w-100" style="height: 75%">
+                        <img src="{{ $productO->url_image }}" class="rounded-top" alt="" width="100%">
+                    </div>
+                    <div class="w-100" style="height: 25%">
+                        <p class="fw-bold ms-2 mt-2 mb-1">{{$productO->es_title}}</p>
+                        <a href="{{ route('product_home', ['lang'=>"es" , 'product'=>$productO->url_seo]) }}" class="btn ms-2 btn-primary">Consultar</a>
+                    </div>
                 </div>
             </div>
         </div>
