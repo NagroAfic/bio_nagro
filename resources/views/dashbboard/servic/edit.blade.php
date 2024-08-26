@@ -15,22 +15,29 @@
                     <h3 class="m-0 font-weight-bold text-primary">Crear servicio</h3>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('servicios.store') }}" method="POST" enctype="multipart/form-data" novalidate>
+                    <form action="{{ route('servicios.update',["service" => $service->id]) }}" method="POST" enctype="multipart/form-data" novalidate>
                         @csrf
+                        @method('PUT')
                         <div class="row">
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label for="">Descripción navegador<span class="text-danger">*</span></label>
+                                    <input type="text" name="description_seo" id="" class="form-control" maxlength="120" value="{{$service->description_seo}}">
+                                </div>
+                            </div>
                             <div class="col-12">
                                 <h5 class="fw-bold"><u>Sección Español</u></h5>
                             </div>
                             <div class="col-12">
                                 <div class="form-group">
                                     <label for="">Titulo<span class="text-danger">*</span></label>
-                                    <input type="text" name="es_title" id="" class="form-control">
+                                    <input type="text" name="es_title" id="" class="form-control" value="{{$service->es_title}}">
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-group">
                                     <label for="">Descripción<span class="text-danger">*</span></label>
-                                    <textarea name="es_description" cols="30" rows="10" class="form-control"></textarea>
+                                    <textarea name="es_description" cols="30" rows="10" class="form-control">{!! $service->es_description !!}</textarea>
                                 </div>
                             </div>
                             <div class="col-12">
@@ -42,20 +49,24 @@
                             <div class="col-12">
                                 <div class="form-group">
                                     <label for="">Titulo </label>
-                                    <input type="text" name="en_title" id="" class="form-control">
+                                    <input type="text" name="en_title" id="" class="form-control" value="{{$service->en_title}}">
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-group">
                                     <label for="">Descripción</label>
-                                    <textarea name="en_description" id="" cols="30" rows="10" class="form-control"></textarea>
+                                    <textarea name="en_description" id="" cols="30" rows="10" class="form-control">{!! $service->es_description !!}</textarea>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-group">
-                                    <label for="">Portada<span class="text-danger">*</span></label>
+                                    <label for="">Portada</label>
                                     <input type="file" name="imagen_principal" id="" accept=".jpg,.jpeg,.webpg,.png">
                                 </div>
+                            </div>
+                            <div class="col-12">
+                                <label for="">Imagen Actual</label>
+                                <img src="{{$service->url_portada}}" alt="">
                             </div>
                             <div class="col-12 d-flex justify-content-end">
                                 <button class="btn btn-success" type="submit">Guardar</button>

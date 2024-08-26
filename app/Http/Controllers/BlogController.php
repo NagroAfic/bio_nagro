@@ -2,17 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Service;
+use App\Models\Blog;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 
-class ServiceController extends Controller
+class BlogController extends Controller
 {
-    public function __construct()
-    {
-       // $this->middleware('auth');
-    }
     /**
      * Display a listing of the resource.
      *
@@ -21,8 +17,8 @@ class ServiceController extends Controller
     public function index()
     {
         //
-        $services = Service::get();
-        return view('dashbboard.servic.index')->with('services',$services);
+        $blogs = Blog::get();
+        return view('dashbboard.blogs.index')->with('blogs',$blogs);
     }
 
     /**
@@ -33,7 +29,7 @@ class ServiceController extends Controller
     public function create()
     {
         //
-        return view('dashbboard.servic.create');
+        return view('dashbboard.blogs.create');
     }
 
     /**
@@ -44,69 +40,69 @@ class ServiceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        ////
         try {
             DB::beginTransaction();
             //CODIGO REQUERIDO
             if(empty($request->description_seo)){
                 Session::flash('danger_message', 'La descripción de la web es requerido para continuar');
-                return redirect()->action([ServiceController::class, 'create']);
+                return redirect()->action([BlogController::class, 'create']);
             }
 
             if(empty($request->es_title)){
                 Session::flash('danger_message', 'El titulo en español es requerido');
-                return redirect()->action([ServiceController::class, 'create']);
+                return redirect()->action([BlogController::class, 'create']);
             }
 
             if(empty($request->es_description)){
                 Session::flash('danger_message', 'La descripción en español es requerido');
-                return redirect()->action([ServiceController::class, 'create']);
+                return redirect()->action([BlogController::class, 'create']);
             }
 
-            $service = new Service();
-            $service->es_title = $request->es_title;
-            $service->es_description = $request->es_description;
-            $service->description_seo = $request->description_seo;
-            $service->url_seo = self::limpiarTexto($request->es_title);
+            $blog = new Blog();
+            $blog->es_title = $request->es_title;
+            $blog->es_description = $request->es_description;
+            $blog->description_seo = $request->description_seo;
+            $blog->url_seo = self::limpiarTexto($request->es_title);
 
 
             if(!empty($request->en_title)){
-                $service->en_title = $request->en_title;
+                $blog->en_title = $request->en_title;
             }
 
             if(!empty($request->en_description)){
-                $service->en_description = $request->en_description;
+                $blog->en_description = $request->en_description;
             }
 
             if(isset($request->imagen_principal)){
-                $rutaImagenPrincipal=$request->imagen_principal->store("service",'public');
-                $service->url_portada = "/storage/".$rutaImagenPrincipal;
+                $rutaImagenPrincipal=$request->imagen_principal->store("blog",'public');
+                $blog->url_portada = "/storage/".$rutaImagenPrincipal;
             }
 
             if(isset($request->embed_video)){
                 $embed_video=$request->embed_video;
-                $service->embed_video = $embed_video;
+                $blog->embed_video = $embed_video;
             }
 
 
-            $service->save();
+            $blog->save();
             DB::commit();
-            return redirect()->action([ServiceController::class, 'index']);
+            return redirect()->action([BlogController::class, 'index']);
         } catch (\Throwable $th) {
             //throw $th;
             DB::rollback();
             Session::flash('danger_message', 'Muestre al administrador del sistema el siguiente mensaje: '.$th->getMessage());
-            return redirect()->action([ServiceController::class, 'create']);
+            return redirect()->action([BlogController::class, 'create']);
         }
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Blog  $blog
      * @return \Illuminate\Http\Response
      */
-    public function show(Service $service)
+    public function show(Blog $blog)
     {
         //
     }
@@ -114,23 +110,22 @@ class ServiceController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Blog  $blog
      * @return \Illuminate\Http\Response
      */
-    public function edit(Service $service)
+    public function edit(Blog $blog)
     {
         //
-        return view('dashbboard.servic.edit')->with('service',$service);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Blog  $blog
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Service $service)
+    public function update(Request $request, Blog $blog)
     {
         //
         try {
@@ -138,50 +133,55 @@ class ServiceController extends Controller
             //CODIGO REQUERIDO
             if(empty($request->es_title)){
                 Session::flash('danger_message', 'El titulo en español es requerido');
-                return redirect()->action([ServiceController::class, 'edit']);
+                return redirect()->action([BlogController::class, 'edit']);
+            }
+
+            if(empty($request->description_seo)){
+                Session::flash('danger_message', 'La descripción de la web es requerido para continuar');
+                return redirect()->action([BlogController::class, 'edit']);
             }
 
             if(empty($request->es_description)){
                 Session::flash('danger_message', 'La descripción en español es requerido');
-                return redirect()->action([ServiceController::class, 'edit']);
+                return redirect()->action([BlogController::class, 'edit']);
             }
 
-            $service->es_title = $request->es_title;
-            $service->es_description = $request->es_description;
-            $service->description_seo = $request->description_seo;
-            $service->url_seo = self::limpiarTexto($request->es_title);
+            $blog->es_title = $request->es_title;
+            $blog->es_description = $request->es_description;
+            $blog->description_seo = $request->description_seo;
+            $blog->url_seo = self::limpiarTexto($request->es_title);
 
             if(!empty($request->en_title)){
-                $service->en_title = $request->en_title;
+                $blog->en_title = $request->en_title;
             }
 
             if(!empty($request->en_description)){
-                $service->en_description = $request->en_description;
+                $blog->en_description = $request->en_description;
             }
 
             if(isset($request->imagen_principal)){
-                $rutaImagenPrincipal=$request->imagen_principal->store("service",'public');
-                $service->url_portada = "/storage/".$rutaImagenPrincipal;
+                $rutaImagenPrincipal=$request->imagen_principal->store("blog",'public');
+                $blog->url_portada = "/storage/".$rutaImagenPrincipal;
             }
 
-            $service->save();
+            $blog->save();
             DB::commit();
-            return redirect()->action([ServiceController::class, 'index']);
+            return redirect()->action([BlogController::class, 'index']);
         } catch (\Throwable $th) {
             //throw $th;
             DB::rollback();
             Session::flash('danger_message', 'Muestre al administrador del sistema el siguiente mensaje: '.$th->getMessage());
-            return redirect()->action([ServiceController::class, 'edit']);
+            return redirect()->action([BlogController::class, 'edit']);
         }
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Blog  $blog
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Service $service)
+    public function destroy(Blog $blog)
     {
         //
     }

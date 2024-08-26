@@ -12,12 +12,18 @@
         <div class="col-12">
             <div class="card shadow mb-4">
                 <div class="card-header py-3 d-flex justify-content-between align-items-center">
-                    <h3 class="m-0 font-weight-bold text-primary">Crear servicio</h3>
+                    <h3 class="m-0 font-weight-bold text-primary">Crear blog</h3>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('servicios.store') }}" method="POST" enctype="multipart/form-data" novalidate>
+                    <form action="{{ route('blog.store') }}" method="POST" enctype="multipart/form-data" novalidate>
                         @csrf
                         <div class="row">
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label for="">Descripción navegador<span class="text-danger">*</span></label>
+                                    <input type="text" name="description_seo" id="" class="form-control" maxlength="120">
+                                </div>
+                            </div>
                             <div class="col-12">
                                 <h5 class="fw-bold"><u>Sección Español</u></h5>
                             </div>

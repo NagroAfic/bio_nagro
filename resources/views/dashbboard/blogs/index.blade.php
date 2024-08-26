@@ -6,8 +6,8 @@
         <div class="col-12">
             <div class="card shadow mb-4">
                 <div class="card-header py-3 d-flex justify-content-between align-items-center">
-                    <h6 class="m-0 font-weight-bold text-primary">Lista de servicios</h6>
-                    <a class="btn btn-primary text-white" href="{{ route('servicios.create') }}">Crear servicio</a>
+                    <h6 class="m-0 font-weight-bold text-primary">Lista de blogs</h6>
+                    <a class="btn btn-primary text-white" href="{{ route('blog.create') }}">Crear blog</a>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -21,12 +21,12 @@
                                 </tr>
                             </thead>
                             <tbody id="worker-table">
-                                @foreach($services as $key)
+                                @foreach($blogs as $key)
                                     <tr>
                                         <td>{{$key->es_title}}</td>
                                         <td>{!!$key->es_description!!}</td>
                                         <td>{{$key->product_status == 1 ? 'Disponible' : 'No disponible'}}</td>
-                                        <td><a href="{{ route('servicios.edit', ['service'=>$key->id]) }}" class="btn btn-warning">Editar</a></td>
+                                        <td><a href="{{ route('blog.edit', ['service'=>$key->id]) }}" class="btn btn-warning">Editar</a></td>
                                     </tr>
                                 @endforeach
                             </tbody>

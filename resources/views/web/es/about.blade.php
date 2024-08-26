@@ -15,9 +15,7 @@
                             <div class="col-md-6 mb-2">
                                 <div class="box-about shadow-sm">
                                     <p class="fw-bold fs-5 mb-1">Calidad</p>
-                                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Similique neque,
-                                        molestias modi laboriosam excepturi accusantium deserunt totam consequuntur
-                                        tenetur illum minima fugiat quia quo autem laudantium sequi vel eius. Laudantium?</p>
+                                    <p>Nuestros productos destacan por su calidad superior, garantizada por el uso de materiales duraderos y diseño robusto, ideales para cualquier entorno.</p>
                                 </div>
                             </div>
                             <div class="col-md-6 mb-2">

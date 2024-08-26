@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
@@ -58,4 +59,12 @@ Route::controller(ServiceController::class)->group(function () {
     Route::get('/dashboard/servicios-util/{service}/editar', 'edit')->name('servicios.edit');
     Route::put('/dashboard/servicios-util/{service}', 'update')->name('servicios.update');
 
+});
+
+Route::controller(BlogController::class)->group(function () {
+    Route::get('/dashboard/blog-util/lista', 'index')->name('blog.index');
+    Route::get('/dashboard/blog-util/crear', 'create')->name('blog.create');
+    Route::post('/dashboard/blog-util/guardar', 'store')->name('blog.store');
+    Route::get('/dashboard/blog-util/{blog}/editar', 'edit')->name('blog.edit');
+    Route::put('/dashboard/blog-util/{blog}', 'update')->name('blog.update');
 });
