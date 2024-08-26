@@ -1,4 +1,4 @@
-<section class="brands py-4" id="marcas">
+<section class="brands py-4" id="brands">
     <div class="container">
         <div class="row">
             <div class="col-12 mb-4">
