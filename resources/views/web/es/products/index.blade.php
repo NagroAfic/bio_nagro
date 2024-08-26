@@ -26,11 +26,11 @@
                 <div class="swiper-wrapper">
                     @foreach($productos as $productO)
                     <div class="swiper-slide">
-                        <div class="list-product pb-2 shadow-sm rounded">
+                        <div class="list-product pb-0 shadow-sm rounded">
                             <div class="w-100" style="height: 75%">
                                 <img src="{{ $productO->url_image }}" class="rounded-top" alt="" width="100%">
                             </div>
-                            <div class="w-100" style="height: 25%">
+                            <div class="w-100" style="height: 25%;background:white;">
                                 <p class="fw-bold ms-2 mt-2 mb-1">{{$productO->es_title}}</p>
                                 <a href="{{ route('product_home', ['lang'=>"es" , 'product'=>$productO->url_seo]) }}" class="btn ms-2 btn-primary">Consultar</a>
                             </div>
