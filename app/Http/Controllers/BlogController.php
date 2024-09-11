@@ -116,7 +116,7 @@ class BlogController extends Controller
     public function edit(Blog $blog)
     {
         //
-        return view('dashbboard.blogs.create')->with('blog',$blog);
+        return view('dashbboard.blogs.edit')->with('blog',$blog);
     }
 
     /**
