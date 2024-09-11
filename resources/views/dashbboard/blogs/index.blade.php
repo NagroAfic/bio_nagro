@@ -26,7 +26,7 @@
                                         <td>{{$key->es_title}}</td>
                                         <td>{!!$key->es_description!!}</td>
                                         <td>{{$key->product_status == 1 ? 'Disponible' : 'No disponible'}}</td>
-                                        <td><a href="{{ route('blog.edit', ['service'=>$key->id]) }}" class="btn btn-warning">Editar</a></td>
+                                        <td><a href="{{ route('blog.edit', ['blog'=>$key->id]) }}" class="btn btn-warning">Editar</a></td>
                                     </tr>
                                 @endforeach
                             </tbody>
