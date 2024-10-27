@@ -8,36 +8,36 @@
             <div class="col-12 col-md-6 d-flex justify-align-center align-items-center">
                 <div class="card mb-4">
                     <div class="card-body p-2">
-                        <form action="" class="w-100">
+                        <form action="{{ route('contactoMail',["lang" => "es"]) }}" class="w-100" method="POST">
                             <div class="row">
                                 <div class="col-12 mb-2">
                                     <div class="form-group">
                                         <label for="">Nombres</label>
-                                        <input type="text" class="form-control" required>
+                                        <input type="text" class="form-control" name="fullname" required>
                                     </div>
                                 </div>
                                 <div class="col-6 mb-2">
                                     <div class="form-group">
                                         <label for="">DNI o RUC</label>
-                                        <input type="text" class="form-control" required maxlength="11">
+                                        <input type="text" class="form-control" name="idruc" required minlength="8" maxlength="11">
                                     </div>
                                 </div>
                                 <div class="col-6 mb-2">
                                     <div class="form-group">
                                         <label for="">Teléfono</label>
-                                        <input type="tel" class="form-control" required maxlength="11">
+                                        <input type="tel" class="form-control" name="phone" required maxlength="11">
                                     </div>
                                 </div>
                                 <div class="col-12 mb-2">
                                     <div class="form-group">
                                         <label for="">Correo Electrónico</label>
-                                        <input type="email" class="form-control" required>
+                                        <input type="email" class="form-control" name="email" required>
                                     </div>
                                 </div>
                                 <div class="col-12 mb-2">
                                     <div class="form-group">
                                         <label for="">Selecciona el producto</label>
-                                        <select name="" id="" class="form-control">
+                                        <select name="product_selected" id="" class="form-control">
                                             @foreach($productos as $key)
                                                 @if(isset($product))
                                                     @if($key->id == $product->id)
@@ -53,15 +53,15 @@
                                 <div class="col-6 mb-2">
                                     <div class="form-group">
                                         <label for="">Unidades</label>
-                                        <input type="number" class="form-control" required>
+                                        <input type="number" class="form-control" name="unit" required>
                                     </div>
                                 </div>
                                 <div class="col-6 mb-2">
                                     <div class="form-group">
                                         <label for="">Alquiler o venta</label>
-                                        <select name="" id="" class="form-control">
-                                            <option value="">Alquiler</option>
-                                            <option value="">Venta</option>
+                                        <select name="sales" id="" class="form-control">
+                                            <option value="Alquiler">Alquiler</option>
+                                            <option value="Venta">Venta</option>
                                         </select>
                                     </div>
                                 </div>

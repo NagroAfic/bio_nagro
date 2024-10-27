@@ -30,6 +30,7 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('/{lang}/servicios/{service}','service')->name('service.index');
     Route::get('/{lang}/marcas','brands')->name('brands');
     Route::get('/{lang}/producto/{product:url_seo}','product_home')->name('product_home');
+    Route::post('/{lang}/contacto/compra/corroelectronico','contactoMail')->name('contactoMail');
 });
 
 Route::controller(DashboardController::class)->group(function () {

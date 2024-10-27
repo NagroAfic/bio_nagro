@@ -6,7 +6,9 @@ use App\Models\Blog;
 use App\Models\Brand;
 use App\Models\Product;
 use App\Models\Service;
+use App\Mail\Cotizacion;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
 {
@@ -74,4 +76,29 @@ class HomeController extends Controller
         $defaultLang = 'es';
         return redirect()->route('home', ['lang' => $defaultLang]);
     }
+
+
+    public function contactoMail(Request $request){
+
+        try {
+            //code...
+            $data = [
+                "fullname" => $request->fullname,
+                "idruc" => $request->idruc,
+                "phone" => $request->phone,
+                "email" => $request->email,
+                "product_selected" => $request->product_selected,
+                "unit" => $request->unit,
+                "sales" => $request->sales
+            ];
+
+            Mail::to("josesaldanavi@gmail.com")->send(new Cotizacion($data));
+        } catch (\Throwable $th) {
+            //throw $th;
+            info("ERROR MESSAGE MAIL :: NO SE PUDO ENVIAR EL CONTACTO POR CORREO ELECTRONICO");
+        }
+        return redirect()->action([HomeController::class, 'contacto']);
+    }
+
+
 }
