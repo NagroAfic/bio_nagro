@@ -12,11 +12,11 @@
                         <div class="swiper-slide">
                             <div class="list-product pb-0 shadow-sm rounded overflow-hidden">
                                 <div class="w-100" style="height: 75%">
-                                    <img src="{{ $blog->url_image }}" class="rounded-top" alt="" width="100%">
+                                    <img src="{{ $blog->url_portada }}" class="rounded-top" alt="" width="100%">
                                 </div>
                                 <div class="w-100" style="height: 25%;background:white;">
                                     <p class="fw-bold ms-2 mt-2 mb-1">{{$blog->en_title}}</p>
-                                    <a href="{{ route('product_home', ['lang'=>"es" , 'product'=>$blog->url_seo]) }}" class="btn ms-2 btn-primary">Ver</a>
+                                    <a href="{{ route('blog_index', ['lang'=>"es" , 'product'=>$blog->url_seo]) }}" class="btn ms-2 btn-primary">Ver</a>
                                 </div>
                             </div>
                         </div>
