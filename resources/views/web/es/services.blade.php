@@ -24,10 +24,10 @@
             @endforeach
         </div>
     </div>
-    <div class="service_algas_rigth">
+    <div class="service_algas_rigth wow animate__animated animate__rotateInDownRight">
         <img src="{{ asset('images/algas.png') }}" width="100%" alt="">
     </div>
-    <div class="service_algas_left">
+    <div class="service_algas_left wow animate__animated animate__rotateInDownLeft">
         <img src="{{ asset('images/algas.png') }}" width="100%" alt="">
     </div>
 </section>
