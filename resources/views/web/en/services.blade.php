@@ -2,8 +2,8 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h2 class="wow animate__fadeInDown">Services</h2>
-                <p class="wow animate__fadeInDown">Explore our services that we provide</p>
+                <h2 class="wow animate__animated animate__fadeInDown">Services</h2>
+                <p class="wow animate__animated animate__fadeInDown">Explore our services that we provide</p>
             </div>
             @foreach ($servicios as $servicio)
             <div class="col-md-6 col-xxl-4 my-2">
@@ -24,10 +24,10 @@
             @endforeach
         </div>
     </div>
-    <div class="service_algas_rigth">
+    <div class="service_algas_rigth wow animate__animated animate__rotateInDownRight">
         <img src="{{ asset('images/algas.png') }}" width="100%" alt="">
     </div>
-    <div class="service_algas_left">
+    <div class="service_algas_left wow animate__animated animate__rotateInDownLeft">
         <img src="{{ asset('images/algas.png') }}" width="100%" alt="">
     </div>
 </section>
