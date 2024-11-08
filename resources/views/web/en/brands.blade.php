@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12 mb-4">
-                <h2>Our brands</h2>
+                <h2 class=" wow animate__animated  animate__fadeInDown">Our brands</h2>
             </div>
             @foreach($marcas as $key)
             <div class="col-12 col-lg-5">

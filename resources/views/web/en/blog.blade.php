@@ -2,8 +2,8 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h2>Blog</h2>
-                <p>Find out the latest news we have on our blog</p>
+                <h2 class=" wow animate__animated  animate__fadeInDown">Blog</h2>
+                <p class="wow animate__animated  animate__fadeInLeftBig">Find out the latest news we have on our blog</p>
             </div>
             <div class="col-12">
                 <div class="swiper biosac-swiper2 pb-5">

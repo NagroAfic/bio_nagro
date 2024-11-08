@@ -2,12 +2,12 @@
     <div class="container">
         <div class="row">
             <div class="col-12 col-md-6">
-                <h2 class="text-white">Cotiza rápidamente y <br> sin compromisos</h2>
-                <p class="text-white">Completa el formulario y recibe una cotización personalizada en solo unos minutos. <br> ¡Es rápido, fácil y sin compromiso!</p>
+                <h2 class="text-white wow animate__animated  animate__fadeInDown">Cotiza rápidamente y <br> sin compromisos</h2>
+                <p class="text-white wow animate__animated  animate__fadeInLeftBig">Completa el formulario y recibe una cotización personalizada en solo unos minutos. <br> ¡Es rápido, fácil y sin compromiso!</p>
             </div>
             <div class="col-12 col-md-6 d-flex justify-align-center align-items-center">
                 <div class="card mb-4">
-                    <div class="card-body p-2">
+                    <div class="card-body p-2 wow animate__animated  animate__fadeInRightBig">
                         <form action="{{ route('contactoMail',["lang" => "es"]) }}" class="w-100" method="POST">
                             <div class="row">
                                 <div class="col-12 mb-2">

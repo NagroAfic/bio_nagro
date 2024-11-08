@@ -2,42 +2,42 @@
     <div class="container">
         <div class="row">
             <div class="col-12 col-md-6">
-                <h2 class="text-white">Get a quick quote  <br> without obligation</h2>
-                <p class="text-white">Fill out the form and receive a personalized quote in just a few minutes. <br> It's quick, easy and no obligation!</p>
+                <h2 class="text-white wow animate__animated  animate__fadeInDown">Get a quick quote  <br> without obligation</h2>
+                <p class="text-white wow animate__animated  animate__fadeInLeftBigs">Fill out the form and receive a personalized quote in just a few minutes. <br> It's quick, easy and no obligation!</p>
             </div>
             <div class="col-12 col-md-6 d-flex justify-align-center align-items-center">
                 <div class="card mb-4">
-                    <div class="card-body p-2">
-                        <form action="" class="w-100">
+                    <div class="card-body p-2 wow animate__animated  animate__fadeInRightBig">
+                        <form action="{{ route('contactoMail',["lang" => "en"]) }}" class="w-100">
                             <div class="row">
                                 <div class="col-12 mb-2">
                                     <div class="form-group">
                                         <label for="">Names</label>
-                                        <input type="text" class="form-control" required>
+                                        <input type="text" class="form-control" name="fullname" required>
                                     </div>
                                 </div>
                                 <div class="col-6 mb-2">
                                     <div class="form-group">
                                         <label for="">ID</label>
-                                        <input type="text" class="form-control" required maxlength="11">
+                                        <input type="text" class="form-control" name="idruc" required minlength="8" maxlength="11">
                                     </div>
                                 </div>
                                 <div class="col-6 mb-2">
                                     <div class="form-group">
                                         <label for="">Phone</label>
-                                        <input type="tel" class="form-control" required maxlength="11">
+                                        <input type="tel" class="form-control" name="phone" required maxlength="11">
                                     </div>
                                 </div>
                                 <div class="col-12 mb-2">
                                     <div class="form-group">
                                         <label for="">Email</label>
-                                        <input type="email" class="form-control" required>
+                                        <input type="email" class="form-control" name="email" required>
                                     </div>
                                 </div>
                                 <div class="col-12 mb-2">
                                     <div class="form-group">
                                         <label for="">Select the product</label>
-                                        <select name="" id="" class="form-control">
+                                        <select name="product_selected" id="" class="form-control">
                                             @foreach($productos as $key)
                                                 @if(isset($product))
                                                     @if($key->id == $product->id)
@@ -53,15 +53,15 @@
                                 <div class="col-6 mb-2">
                                     <div class="form-group">
                                         <label for="">Quantity</label>
-                                        <input type="number" class="form-control" required>
+                                        <input type="number" class="form-control" name="unit" required>
                                     </div>
                                 </div>
                                 <div class="col-6 mb-2">
                                     <div class="form-group">
                                         <label for="">Rent or sale</label>
-                                        <select name="" id="" class="form-control">
-                                            <option value="">Rent</option>
-                                            <option value="">Sale</option>
+                                        <select name="sales" id="" class="form-control">
+                                            <option value="Rent">Rent</option>
+                                            <option value="Sale">Sale</option>
                                         </select>
                                     </div>
                                 </div>
