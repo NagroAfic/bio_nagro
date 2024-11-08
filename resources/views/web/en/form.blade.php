@@ -9,6 +9,7 @@
                 <div class="card mb-4 wow animate__animated  animate__fadeInRightBig">
                     <div class="card-body p-2 wow animate__animated  animate__fadeInRightBig">
                         <form action="{{ route('contactoMail',["lang" => "en"]) }}" class="w-100">
+                            @csrf
                             <div class="row">
                                 <div class="col-12 mb-2">
                                     <div class="form-group">
