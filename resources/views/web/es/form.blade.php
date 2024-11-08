@@ -6,8 +6,8 @@
                 <p class="text-white wow animate__animated  animate__fadeInLeftBig">Completa el formulario y recibe una cotización personalizada en solo unos minutos. <br> ¡Es rápido, fácil y sin compromiso!</p>
             </div>
             <div class="col-12 col-md-6 d-flex justify-align-center align-items-center">
-                <div class="card mb-4">
-                    <div class="card-body p-2 wow animate__animated  animate__fadeInRightBig">
+                <div class="card mb-4 wow animate__animated  animate__fadeInRightBig">
+                    <div class="card-body p-2">
                         <form action="{{ route('contactoMail',["lang" => "es"]) }}" class="w-100" method="POST">
                             <div class="row">
                                 <div class="col-12 mb-2">

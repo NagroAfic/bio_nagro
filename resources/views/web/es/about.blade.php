@@ -8,7 +8,7 @@
                 <div class="row">
                     <div class="col-12">
                         <h2 class="text-white wow animate__animated  animate__fadeInDown">¿Por qué elegirnos?</h2>
-                        <p class="text-white wow animate__animated  animate__fadeInLeftBig">Porque jamás hemos dejado de mejorar nuestros productos lanzando nuevas versiones, además de innovar con nuevos servicios posicionándonos como pioneros en el mantenimiento y reparación para sus equipos e instrumentos.</p>
+                        <p class="text-white wow animate__animated  animate__fadeInUp">Porque jamás hemos dejado de mejorar nuestros productos lanzando nuevas versiones, además de innovar con nuevos servicios posicionándonos como pioneros en el mantenimiento y reparación para sus equipos e instrumentos.</p>
                     </div>
                     <div class="col-12">
                         <div class="row">

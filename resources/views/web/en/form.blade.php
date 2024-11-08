@@ -6,7 +6,7 @@
                 <p class="text-white wow animate__animated  animate__fadeInLeftBigs">Fill out the form and receive a personalized quote in just a few minutes. <br> It's quick, easy and no obligation!</p>
             </div>
             <div class="col-12 col-md-6 d-flex justify-align-center align-items-center">
-                <div class="card mb-4">
+                <div class="card mb-4 wow animate__animated  animate__fadeInRightBig">
                     <div class="card-body p-2 wow animate__animated  animate__fadeInRightBig">
                         <form action="{{ route('contactoMail',["lang" => "en"]) }}" class="w-100">
                             <div class="row">
