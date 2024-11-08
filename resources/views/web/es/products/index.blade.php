@@ -17,7 +17,7 @@
             {!!$product->es_description!!}
         </div>
         <div class="col-12">
-            <hr>
+            {!!$product->embed_video!!}
         </div>
         <!--CARRUSEL-->
         <div class="col-12">

@@ -143,6 +143,14 @@
         height: 100%;
     }
 }
+.product-img-visualization{
+    max-width: 575px;
+    & img{
+        width: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+}
 @media(min-width: 768px){
     .header{
         background: url('../../public/images/bg_top_desktop.jpg');

@@ -66,7 +66,7 @@
                             <div class="col-12">
                                 <div class="form-group">
                                     <label for="">Video<span class="text-danger">*</span></label>
-                                    <textarea name="embed_video" id="" cols="30" rows="10"></textarea>
+                                    <textarea name="embed_video" id="" cols="30" rows="10" class="form-control"></textarea>
                                 </div>
                             </div>
                             <div class="col-12 d-flex justify-content-end">
