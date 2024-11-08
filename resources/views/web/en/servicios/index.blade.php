@@ -14,7 +14,8 @@
                     </div>
                     @if ($service->embed_video != null)
                     <div class="col-12">
-                        <p>Video relacionado</p>
+                        <p>Video</p>
+                        {!!$service->embed_video!!}
                     </div>
                     @endif
                 </div>
