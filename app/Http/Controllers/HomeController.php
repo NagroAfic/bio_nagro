@@ -97,7 +97,7 @@ class HomeController extends Controller
             //throw $th;
             info("ERROR MESSAGE MAIL :: NO SE PUDO ENVIAR EL CONTACTO POR CORREO ELECTRONICO");
         }
-        return redirect()->action([HomeController::class, 'contacto']);
+        return redirect()->action([HomeController::class, 'index'],['lang' => $request->lang]);
     }
 
 
