@@ -3,7 +3,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <meta name="description" content="Empresa peruana líder en VENTA, ALQUILER, reparación y mantenimiento de equipos ambientales de monitoreo de agua y suelo, de campo y laboratorio. Insumos para análisis de laboratorio. Equipos de análisis de laboratorio. Todo en redes de muestreo hidrobiológico. Análisis hidrobiológicos y consultoría.">
+    <meta name="keywords" content="bioservice consulting & laboratory, productos de calidad">
+    <meta name="author" content="Nagro - Jose Saldaña">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -101,10 +103,10 @@
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <p class="text-white mb-1">>@if($page_traduction == "ES") {{__('Contacto')}} @else {{__('Contact')}} @endif </p>
+                    <p class="text-white mb-1">@if($page_traduction == "ES") {{__('Contacto')}} @else {{__('Contact')}} @endif </p>
                     <div class="d-flex align-items-center mb-3">
                         <svg width="32px" height="32px" viewBox="0 -2.5 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>email [#ffffff]</title> <desc>Created with Sketch.</desc> <defs> </defs> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Dribbble-Light-Preview" transform="translate(-340.000000, -922.000000)" fill="#ffffff"> <g id="icons" transform="translate(56.000000, 160.000000)"> <path d="M294,774.474 L284,765.649 L284,777 L304,777 L304,765.649 L294,774.474 Z M294.001,771.812 L284,762.981 L284,762 L304,762 L304,762.981 L294.001,771.812 Z" id="email-[#ffffff]"> </path> </g> </g> </g> </g></svg>
-                        <a href="tel:+51945143317" class="text-white text-decoration-none ms-3">@bioserviceclab</a>
+                        <a href="tel:+51945143317" class="text-white text-decoration-none ms-3">ventas@bioserviceclab.com</a>
                     </div>
                 </div>
                 <div class="col-12 d-flex justify-content-center align-items-center">

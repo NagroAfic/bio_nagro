@@ -92,7 +92,7 @@ class HomeController extends Controller
                 "sales" => $request->sales
             ];
 
-            Mail::to("josesaldanavi@gmail.com")->send(new Cotizacion($data));
+            Mail::to("ventas@bioserviceclab.com")->send(new Cotizacion($data));
         } catch (\Throwable $th) {
             //throw $th;
             info("ERROR MESSAGE MAIL :: NO SE PUDO ENVIAR EL CONTACTO POR CORREO ELECTRONICO");
