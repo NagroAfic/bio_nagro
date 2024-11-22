@@ -24,7 +24,7 @@
                                                     <img src="{{ $product->url_image }}" class="rounded-top" alt="" width="100%">
                                                 </div>
                                                 <div class="w-100" style="height: 25%;background:white;">
-                                                    <p class="fw-bold ms-2 mt-2 mb-1">{{$product->en_title}}</p>
+                                                    <p class="fw-bold ms-2 mt-2 mb-1 text-truncate-multiline">{{$product->en_title}}</p>
                                                     <a href="{{ route('product_home', ['lang'=>"es" , 'product'=>$product->url_seo]) }}" class="btn ms-2 btn-primary">Consult</a>
                                                 </div>
                                             </div>
