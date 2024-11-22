@@ -19,6 +19,16 @@
         <div class="col-12">
             {!!$product->embed_video!!}
         </div>
+        <div class="col-12-my-5">
+            <h3 class="fw-bold">ALL OUR PRODUCTS INCLUDE</h3>
+            <ul>
+                <li>12-month warranty certificate against manufacturing defects</li>
+                <li>Operation and maintenance manual</li>
+                <li>Pore size verification certificate</li>
+                <li>Durable fabric bag for proper transportation</li>
+            </ul>
+
+        </div>
         <!--CARRUSEL-->
         <div class="col-12">
             <h3>Más productos de la marca</h3>

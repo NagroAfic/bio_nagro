@@ -19,6 +19,15 @@
         <div class="col-12">
             {!!$product->embed_video!!}
         </div>
+        <div class="col-12 my-5">
+            <h3 class="fw-bold">TODOS NUESTROS PRODUCTOS INCLUYEN</h3>
+            <ul>
+                <li>Certificado de garantía por 12 meses contra defectos de fabricación</li>
+                <li>Manual de operaciones y mantenimiento</li>
+                <li>Certificado de verificación de tamaño de poro</li>
+                <li>Bolso de tela resistente para adecuado transporte</li>
+            </ul>
+        </div>
         <!--CARRUSEL-->
         <div class="col-12">
             <h3>Más productos de la marca</h3>

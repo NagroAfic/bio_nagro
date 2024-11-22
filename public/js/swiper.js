@@ -11,6 +11,14 @@ var biosac_swiper = new Swiper(".biosac-swiper", {
             slidesPerView: 2,
             spaceBetween: 20,
         },
+        1024: {
+            slidesPerView: 3,
+            spaceBetween: 30,
+        },
+        1366: {
+            slidesPerView: 5,
+            spaceBetween: 10,
+        },
     },
   });
 
@@ -41,7 +49,7 @@ var biosac_swiper = new Swiper(".biosac-swiper", {
             slidesPerView: 2,
             spaceBetween: 20,
         },
-        
+
         1200: {
           slidesPerView: 4,
           spaceBetween: 10,

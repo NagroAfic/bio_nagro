@@ -5,7 +5,7 @@
                 <h2 class=" wow animate__animated  animate__fadeInDown">Nuestras marcas</h2>
             </div>
             @foreach($marcas as $key)
-            <div class="col-12 col-lg-5">
+            <div class="col-12">
                 <div class="brands-boxing w-100">
                     <div class="row">
                             <div class="col-12 d-flex justify-content-center">
@@ -39,7 +39,7 @@
                 </div>
             </div>
             @if($key->es_title == "BSCLAB")
-            <div class="col-12 col-lg-2">
+            <div class="col-12">
                 <div class="division"></div>
             </div>
             @endif
