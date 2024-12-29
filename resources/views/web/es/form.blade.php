@@ -66,8 +66,9 @@
                                         </select>
                                     </div>
                                 </div>
+                                <div class="h-captcha" data-sitekey="247e60d2-3838-4fea-9478-35f62c5282da" data-callback="captchaCompleted"></div>
                                 <div class="col-12">
-                                    <button class="btn btn-primary w-100">Enviar</button>
+                                    <button class="btn btn-primary w-100" id="form-cotizacion-sub" disabled>Enviar</button>
                                 </div>
                             </div>
                         </form>

@@ -30,43 +30,44 @@ class HomeController extends Controller
     public function index($lang)
     {
         $page_traduction = strtoupper($lang);
-        $servicios = Service::where('status',1)->get();
-        $blogs = Blog::where('status',1)->get();
-        $marcas = Brand::where('status',1)->get();
-        $marcas_id = Brand::where('status',1)->pluck('id');
-        $productos = Product::where('status',1)->select('id','brand_id','url_seo','es_title','en_title','url_image')->whereIn('brand_id',$marcas_id)->get();
+        $servicios = Service::where('status', 1)->get();
+        $blogs = Blog::where('status', 1)->get();
+        $marcas = Brand::where('status', 1)->get();
+        $marcas_id = Brand::where('status', 1)->pluck('id');
+        $productos = Product::where('status', 1)->select('id', 'brand_id', 'url_seo', 'es_title', 'en_title', 'url_image')->whereIn('brand_id', $marcas_id)->get();
         //return response()->json(["marcas_id" => $marcas_id,"productos"=>$productos], 200);
 
-        return view('web.index')->with('page_traduction',$page_traduction)
-                                ->with('marcas',$marcas)->with('productos',$productos)
-                                ->with('blogs',$blogs)->with('servicios',$servicios);
+        return view('web.index')->with('page_traduction', $page_traduction)
+            ->with('marcas', $marcas)->with('productos', $productos)
+            ->with('blogs', $blogs)->with('servicios', $servicios);
     }
 
     public function services($lang)
     {
         $page_traduction = strtoupper($lang);
-        $servicios = Service::where('status',1)->get();
-        return view('web.services')->with('page_traduction',$page_traduction)->with('servicios',$servicios);
+        $servicios = Service::where('status', 1)->get();
+        return view('web.services')->with('page_traduction', $page_traduction)->with('servicios', $servicios);
     }
 
     public function brands($lang)
     {
         $page_traduction = strtoupper($lang);
-        $servicios = Service::where('status',1)->get();
-        return view('web.brand')->with('page_traduction',$page_traduction)->with('servicios',$servicios);
+        $servicios = Service::where('status', 1)->get();
+        return view('web.brand')->with('page_traduction', $page_traduction)->with('servicios', $servicios);
     }
 
-    public function service($lang,Service $service)
+    public function service($lang, Service $service)
     {
         $page_traduction = strtoupper($lang);
-        $servicios = Service::where('status',1)->get();
-        return view('web.es.servicios.index')->with('page_traduction',$page_traduction)->with('service',$service)->with('servicios',$servicios);
+        $servicios = Service::where('status', 1)->get();
+        return view('web.es.servicios.index')->with('page_traduction', $page_traduction)->with('service', $service)->with('servicios', $servicios);
     }
 
-    function product_home($lang,Product $product)  {
+    function product_home($lang, Product $product)
+    {
         $page_traduction = strtoupper($lang);
-        $productos = Product::where('status',1)->select('id','brand_id','url_seo','es_title','en_title','url_image')->where('brand_id',$product->brand_id)->get();
-        return view('web.product')->with('page_traduction',$page_traduction)->with('productos',$productos)->with('product',$product);
+        $productos = Product::where('status', 1)->select('id', 'brand_id', 'url_seo', 'es_title', 'en_title', 'url_image')->where('brand_id', $product->brand_id)->get();
+        return view('web.product')->with('page_traduction', $page_traduction)->with('productos', $productos)->with('product', $product);
     }
 
 
@@ -78,27 +79,38 @@ class HomeController extends Controller
     }
 
 
-    public function contactoMail(Request $request){
+    public function contactoMail(Request $request)
+    {
 
-        try {
-            //code...
-            $data = [
-                "fullname" => $request->fullname,
-                "idruc" => $request->idruc,
-                "phone" => $request->phone,
-                "email" => $request->email,
-                "product_selected" => $request->product_selected,
-                "unit" => $request->unit,
-                "sales" => $request->sales
-            ];
+        #dd($request->all());
+        $hcaptchaSecret = 'ES_5707c2c2614b4da5828fc54269c4e2ee';
+        $hcaptchaResponse = $_POST['h-captcha-response'];
 
-            Mail::to("ventas@bioserviceclab.com")->send(new Cotizacion($data));
-        } catch (\Throwable $th) {
-            //throw $th;
-            info("ERROR MESSAGE MAIL :: NO SE PUDO ENVIAR EL CONTACTO POR CORREO ELECTRONICO");
+        $response = file_get_contents("https://hcaptcha.com/siteverify?secret=$hcaptchaSecret&response=$hcaptchaResponse");
+        $responseKeys = json_decode($response, true);
+
+        if(intval($responseKeys["success"]) !== 1) {
+            return redirect()->action([HomeController::class, 'index'], ['lang' => $request->lang]);
+        } else {
+            try {
+                //code...
+                $data = [
+                    "fullname" => $request->fullname,
+                    "idruc" => $request->idruc,
+                    "phone" => $request->phone,
+                    "email" => $request->email,
+                    "product_selected" => $request->product_selected,
+                    "unit" => $request->unit,
+                    "sales" => $request->sales
+                ];
+
+                Mail::to("ventas@bioserviceclab.com")->send(new Cotizacion($data));
+            } catch (\Throwable $th) {
+                //throw $th;
+                info("ERROR MESSAGE MAIL :: NO SE PUDO ENVIAR EL CONTACTO POR CORREO ELECTRONICO");
+            }
+            return redirect()->action([HomeController::class, 'index'], ['lang' => $request->lang]);
         }
-        return redirect()->action([HomeController::class, 'index'],['lang' => $request->lang]);
+
     }
-
-
 }
