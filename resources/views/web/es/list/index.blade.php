@@ -11,7 +11,7 @@
                 </div>
                 <div class="w-100" style="height: 25%;background:white;">
                     <p class="fw-bold ms-2 mt-2 mb-1 text-truncate-multiline">{{$product->es_title}}</p>
-                    <a href="{{ route('product_home', ['lang'=>" es" , 'product'=>$product->url_seo]) }}" class="btn
+                    <a href="{{ route('product_home', ['lang'=>"es" , 'product'=>$product->url_seo]) }}" class="btn
                         ms-2 btn-primary">Consult</a>
                 </div>
             </div>
