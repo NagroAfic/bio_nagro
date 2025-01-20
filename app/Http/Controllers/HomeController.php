@@ -73,7 +73,7 @@ class HomeController extends Controller
     function listProducts($lang,Brand $brand) {
         $products = Product::where('status', 1)->select('id', 'brand_id', 'url_seo', 'es_title', 'en_title', 'url_image')->where('brand_id', $brand->id)->get();
         $page_traduction = strtoupper($lang);
-        return view('web.list_products')->with('page_traduction', $page_traduction)->with('products', $products);
+        return view('web.list_products')->with('page_traduction', $page_traduction)->with('products', $products)->with('brand', $brand);
     }
 
 
