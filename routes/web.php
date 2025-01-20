@@ -29,6 +29,7 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('/{lang}/servicios','services')->name('services');
     Route::get('/{lang}/servicios/{service}','service')->name('service.index');
     Route::get('/{lang}/marcas','brands')->name('brands');
+    Route::get('/{lang}/productos-marca/{brand:url_seo}','listProducts')->name('listProducts');
     Route::get('/{lang}/producto/{product:url_seo}','product_home')->name('product_home');
     Route::post('/contacto/compra/corroelectronico','contactoMail')->name('contactoMail');
 });
