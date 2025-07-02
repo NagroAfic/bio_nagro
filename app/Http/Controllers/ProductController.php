@@ -170,6 +170,9 @@ class ProductController extends Controller
                 $rutaImagenPrincipal=$request->imagen_principal->store("producto",'public');
                 $product->url_image = "/storage/".$rutaImagenPrincipal;
             }
+
+            $product->status = $request->status;
+
             $product->save();
             DB::commit();
             return redirect()->action([ProductController::class, 'index']);

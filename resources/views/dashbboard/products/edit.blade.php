@@ -17,6 +17,7 @@
                 <div class="card-body">
                     <form action="{{ route('productos.update',['product'=>$product->id]) }}" method="POST" enctype="multipart/form-data" novalidate>
                         @csrf
+                        @method('PUT')
                         <div class="row">
                             <div class="col-12">
                                 <div class="form-group">
@@ -84,6 +85,15 @@
                                 <div class="form-group">
                                     <label for="">Foto del producto<span class="text-danger">*</span></label>
                                     <input type="file" name="imagen_principal" id="" accept=".jpg,.jpeg,.webpg,.png">
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label for="">Estado<span class="text-danger">*</span></label>
+                                    <select name="status" id="" class="form-control">
+                                        <option value="0" {{$product->status == 0 ? 'selected' : ''}}>No disponible</option>
+                                        <option value="1" {{$product->status == 1 ? 'selected' : ''}}>Disponible</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-12 d-flex justify-content-end">
