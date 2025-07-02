@@ -136,12 +136,12 @@ class ProductController extends Controller
             //CODIGO REQUERIDO
             if(empty($request->es_title)){
                 Session::flash('danger_message', 'El titulo en español es requerido');
-                return redirect()->action([ProductController::class, 'create']);
+            return redirect()->action([ProductController::class, 'edit'],['product',$product]);
             }
 
             if(empty($request->es_description)){
                 Session::flash('danger_message', 'La descripción en español es requerido');
-                return redirect()->action([ProductController::class, 'create']);
+                return redirect()->action([ProductController::class, 'edit'],['product',$product]);
             }
 
             // if(empty($request->imagen_principal)){
