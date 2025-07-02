@@ -144,10 +144,10 @@ class ProductController extends Controller
                 return redirect()->action([ProductController::class, 'create']);
             }
 
-            if(empty($request->imagen_principal)){
-                Session::flash('danger_message', 'El producto necesita una imagen');
-                return redirect()->action([ProductController::class, 'create']);
-            }
+            // if(empty($request->imagen_principal)){
+            //     Session::flash('danger_message', 'El producto necesita una imagen');
+            //     return redirect()->action([ProductController::class, 'create']);
+            // }
 
             $product->es_title = $request->es_title;
             $product->es_description = $request->es_description;
