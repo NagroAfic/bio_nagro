@@ -14,7 +14,7 @@
         </div>
         <div class="col-12 product-visualization-dashboard">
             <!-- Descripción del producto -->
-            {!!$product->en_description!!}
+            {!!$product->es_description!!}
         </div>
         <div class="col-12">
             {!!$product->embed_video!!}
