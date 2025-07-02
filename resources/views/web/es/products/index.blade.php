@@ -12,9 +12,9 @@
         <div class="col-12">
             <hr>
         </div>
-        <div class="col-12">
+        <div class="col-12 product-visualization-dashboard">
             <!-- Descripción del producto -->
-            {!!$product->es_description!!}
+            {!!$product->en_description!!}
         </div>
         <div class="col-12">
             {!!$product->embed_video!!}

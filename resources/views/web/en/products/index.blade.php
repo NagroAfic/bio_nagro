@@ -1,12 +1,12 @@
 <div class="container my-5">
     <div class="row">
         <div class="col-12 mt-5">
-            <h2>{{$product->es_title}}</h2>
+            <h2>{{$product->en_title}}</h2>
         </div>
         <div class="col-12 d-flex justify-content-center align-items-center">
             <!-- Imagen del producto solo 1 -->
             <div class="product-img-visualization">
-                <img src="{{$product->url_image}}" alt="{{$product->es_title}}" title="{{$product->es_title}}">
+                <img src="{{$product->url_image}}" alt="{{$product->en_title}}" title="{{$product->en_title}}">
             </div>
         </div>
         <div class="col-12">
@@ -14,7 +14,7 @@
         </div>
         <div class="col-12 product-visualization-dashboard">
             <!-- Descripción del producto -->
-            {!!$product->es_description!!}
+            {!!$product->en_description!!}
         </div>
         <div class="col-12">
             {!!$product->embed_video!!}
