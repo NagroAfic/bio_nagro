@@ -6,16 +6,15 @@
         <div class="col-12">
             <div class="card shadow mb-4">
                 <div class="card-header py-3 d-flex justify-content-between align-items-center">
-                    <h6 class="m-0 font-weight-bold text-primary">Lista de Marcas</h6>
-                    <a class="btn btn-primary text-white" href="{{ route('marcas.create') }}">Crear Marca</a>
+                    <h6 class="m-0 font-weight-bold text-primary">Lista de Categorias</h6>
+                    <a class="btn btn-primary text-white" href="{{ route('categorias.create') }}">Crear Marca</a>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
                         <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
-                                    <th>Marca</th>
-                                    <td>Descripción</td>
+                                    <th>Categoria</th>
                                     <th width="180px">Disponibilidad</th>
                                     <th>Acciones</th>
                                 </tr>
@@ -24,9 +23,8 @@
                                 @foreach($brands as $key)
                                     <tr>
                                         <td>{{$key->es_title}}</td>
-                                        <td>{!!$key->es_description!!}</td>
                                         <td>{{$key->status == 1 ? 'Disponible' : 'No disponible'}}</td>
-                                        <td><a href="{{ route('marcas.edit', ['brand'=>$key->id]) }}" class="btn btn-warning">Editar</a></td>
+                                        <td><a href="{{ route('categorias.edit', ['category'=>$key->id]) }}" class="btn btn-warning">Editar</a></td>
                                     </tr>
                                 @endforeach
                             </tbody>
