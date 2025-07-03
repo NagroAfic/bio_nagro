@@ -88,6 +88,7 @@ class CategoryController extends Controller
     public function edit(Category $category)
     {
         //
+        return view('dashbboard.categories.edit')->with('category',$category);
     }
 
     /**
@@ -100,6 +101,29 @@ class CategoryController extends Controller
     public function update(Request $request, Category $category)
     {
         //
+        try {
+            DB::beginTransaction();
+            //CODIGO REQUERIDO
+            if(empty($request->es_title)){
+                Session::flash('danger_message', 'El titulo en español es requerido');
+                return redirect()->action([BrandController::class, 'create']);
+            }
+
+            $category->es_title = $request->es_title;
+
+            if(!empty($request->en_title)){
+                $category->en_title = $request->en_title;
+            }
+            $category->status = $request->status;
+            $category->save();
+            DB::commit();
+            return redirect()->action([BrandController::class, 'index']);
+        } catch (\Throwable $th) {
+            //throw $th;
+            DB::rollback();
+            Session::flash('danger_message', 'Muestre al administrador del sistema el siguiente mensaje: '.$th->getMessage());
+            return redirect()->action([BrandController::class, 'create']);
+        }
     }
 
     /**
