@@ -106,7 +106,7 @@ class CategoryController extends Controller
             //CODIGO REQUERIDO
             if(empty($request->es_title)){
                 Session::flash('danger_message', 'El titulo en español es requerido');
-                return redirect()->action([CategoryController::class, 'edit']);
+                return redirect()->action([CategoryController::class, 'edit'],['category'=>$category]);
             }
 
             $category->es_title = $request->es_title;
@@ -122,7 +122,7 @@ class CategoryController extends Controller
             //throw $th;
             DB::rollback();
             Session::flash('danger_message', 'Muestre al administrador del sistema el siguiente mensaje: '.$th->getMessage());
-            return redirect()->action([CategoryController::class, 'edit']);
+            return redirect()->action([CategoryController::class, 'edit'],['category'=>$category]);
         }
     }
 

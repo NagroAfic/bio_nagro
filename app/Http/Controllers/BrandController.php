@@ -131,12 +131,12 @@ class BrandController extends Controller
             //CODIGO REQUERIDO
             if(empty($request->es_title)){
                 Session::flash('danger_message', 'El titulo en español es requerido');
-                return redirect()->action([BrandController::class, 'create']);
+                return redirect()->action([BrandController::class, 'edit'],['brand'=>$brand]);
             }
 
             if(empty($request->es_description)){
                 Session::flash('danger_message', 'La descripción en español es requerido');
-                return redirect()->action([BrandController::class, 'create']);
+                return redirect()->action([BrandController::class, 'edit'],['brand'=>$brand]);
             }
 
             $brand->es_title = $request->es_title;
