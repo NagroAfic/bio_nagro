@@ -56,6 +56,7 @@ class CategoryController extends Controller
             if(!empty($request->en_title)){
                 $category->en_title = $request->en_title;
             }
+            
             $category->status = $request->status;
             $category->save();
             DB::commit();

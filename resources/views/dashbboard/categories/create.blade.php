@@ -51,7 +51,7 @@
                             <div class="col-12">
                                 <div class="form-group">
                                     <label for="">Estado<span class="text-danger">*</span></label>
-                                    <select name="" id="">
+                                    <select name="status" id="">
                                         <option value="0">Disponible</option>
                                         <option value="1">No disponible</option>
                                     </select>
