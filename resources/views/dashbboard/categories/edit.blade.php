@@ -15,7 +15,7 @@
                     <h3 class="m-0 font-weight-bold text-primary">Actualizar categoria</h3>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('categoria.update', ['category'=>$category->id]) }}" method="POST" enctype="multipart/form-data" novalidate>
+                    <form action="{{ route('categorias.update', ['category'=>$category->id]) }}" method="POST" enctype="multipart/form-data" novalidate>
                         @csrf
                         @method('put')
                         <div class="row">
