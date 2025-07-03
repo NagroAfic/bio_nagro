@@ -7,7 +7,7 @@
             <div class="card shadow mb-4">
                 <div class="card-header py-3 d-flex justify-content-between align-items-center">
                     <h6 class="m-0 font-weight-bold text-primary">Lista de Categorias</h6>
-                    <a class="btn btn-primary text-white" href="{{ route('categorias.create') }}">Crear Marca</a>
+                    <a class="btn btn-primary text-white" href="{{ route('categorias.create') }}">Crear Categoria</a>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -20,7 +20,7 @@
                                 </tr>
                             </thead>
                             <tbody id="worker-table">
-                                @foreach($brands as $key)
+                                @foreach($categories as $key)
                                     <tr>
                                         <td>{{$key->es_title}}</td>
                                         <td>{{$key->status == 1 ? 'Disponible' : 'No disponible'}}</td>

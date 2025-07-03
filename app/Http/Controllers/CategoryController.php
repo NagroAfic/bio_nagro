@@ -49,14 +49,13 @@ class CategoryController extends Controller
                 return redirect()->action([CategoryController::class, 'create']);
             }
 
-
             $category = new Category();
             $category->es_title = $request->es_title;
 
             if(!empty($request->en_title)){
                 $category->en_title = $request->en_title;
             }
-            
+
             $category->status = $request->status;
             $category->save();
             DB::commit();
