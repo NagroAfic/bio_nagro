@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Brand;
+use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -36,7 +37,8 @@ class ProductController extends Controller
     {
         //
         $brands = Brand::where('status',1)->get();
-        return view('dashbboard.products.create')->with('brands',$brands);
+        $categories = Category::where('status',1)->get();
+        return view('dashbboard.products.create')->with('brands',$brands)->with('categories',$categories);
     }
 
     /**
@@ -86,6 +88,7 @@ class ProductController extends Controller
 
             $rutaImagenPrincipal=$request->imagen_principal->store("producto",'public');
             $product->url_image = "/storage/".$rutaImagenPrincipal;
+            $product->category_id = $request->category_id;
             $product->save();
             DB::commit();
             return redirect()->action([ProductController::class, 'index']);
@@ -118,7 +121,8 @@ class ProductController extends Controller
     {
         //
         $brands = Brand::where('status',1)->get();
-        return view('dashbboard.products.edit')->with('product',$product)->with('brands',$brands);
+        $categories = Category::where('status',1)->get();
+        return view('dashbboard.products.edit')->with('product',$product)->with('brands',$brands)->with('categories',$categories);
     }
 
     /**
@@ -171,6 +175,7 @@ class ProductController extends Controller
                 $product->url_image = "/storage/".$rutaImagenPrincipal;
             }
 
+            $product->category_id = $request->category_id;
             $product->status = $request->status;
 
             $product->save();

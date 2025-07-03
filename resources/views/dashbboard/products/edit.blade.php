@@ -78,6 +78,17 @@
                                 </div>
                             </div>
                             <div class="col-12">
+                                <div class="form-group">
+                                    <label for="">Categoria</label>
+                                    <select name="category_id" id="" class="form-control">
+                                        <option value="">Seleccione una categoria</option>
+                                        @foreach ($categories as $category)
+                                            <option value="{{$category->id}}"{{$product->category_id == $category->id ? 'selected' : ''}}>{{$category->es_title}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-12">
                                 <p>Imagen actual</p>
                                 <img src="{{$product->url_image}}" width="100px" alt="">
                             </div>

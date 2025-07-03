@@ -78,6 +78,17 @@
                             </div>
                             <div class="col-12">
                                 <div class="form-group">
+                                    <label for="">Categoria</label>
+                                    <select name="category_id" id="" class="form-control">
+                                        <option value="">Seleccione una categoria</option>
+                                        @foreach ($categories as $category)
+                                            <option value="{{$category->id}}">{{$category->es_title}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
                                     <label for="">Foto del producto<span class="text-danger">*</span></label>
                                     <input type="file" name="imagen_principal" id="" accept=".jpg,.jpeg,.webpg,.png">
                                 </div>
