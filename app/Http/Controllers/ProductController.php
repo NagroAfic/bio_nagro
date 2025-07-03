@@ -3,17 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Models\Brand;
-use App\Models\Category;
 use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
     public function __construct()
     {
-       // $this->middleware('auth');
+       $this->middleware('auth');
     }
     /**
      * Display a listing of the resource.
@@ -135,6 +136,7 @@ class ProductController extends Controller
     public function update(Request $request, Product $product)
     {
         //
+        $archivosCreados = [];
         try {
             DB::beginTransaction();
             //CODIGO REQUERIDO
@@ -171,7 +173,10 @@ class ProductController extends Controller
             }
 
             if(isset($request->imagen_principal)){
+                $archivo = str_replace('/storage/', '', $product->url_image);
+                Storage::disk('public')->delete($archivo);
                 $rutaImagenPrincipal=$request->imagen_principal->store("producto",'public');
+                $archivosCreados[] = $rutaImagenPrincipal;
                 $product->url_image = "/storage/".$rutaImagenPrincipal;
             }
 
@@ -184,6 +189,12 @@ class ProductController extends Controller
         } catch (\Throwable $th) {
             //throw $th;
             DB::rollback();
+
+            foreach ($archivosCreados as $archivo) {
+                Storage::disk('public')->delete($archivo);
+            }
+
+
             Session::flash('danger_message', 'Muestre al administrador del sistema el siguiente mensaje: '.$th->getMessage());
             return redirect()->action([ProductController::class, 'edit'],['product',$product]);
         }

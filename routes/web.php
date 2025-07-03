@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\BrandController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
@@ -69,4 +70,13 @@ Route::controller(BlogController::class)->group(function () {
     Route::post('/dashboard/blog-util/guardar', 'store')->name('blog.store');
     Route::get('/dashboard/blog-util/{blog}/editar', 'edit')->name('blog.edit');
     Route::put('/dashboard/blog-util/{blog}', 'update')->name('blog.update');
+});
+
+
+Route::controller(CategoryController::class)->group(function () {
+    Route::get('/dashboard/categorias/lista', 'index')->name('categorias.index');
+    Route::get('/dashboard/categorias/crear', 'create')->name('categorias.create');
+    Route::post('/dashboard/categorias/guardar', 'store')->name('categorias.store');
+    Route::get('/dashboard/categorias/{category}/editar', 'edit')->name('categorias.edit');
+    Route::put('/dashboard/categorias/{category}', 'update')->name('categorias.update');
 });

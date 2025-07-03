@@ -65,6 +65,11 @@
                         <a class="collapse-item" href="{{ route('productos.create') }}">Crear</a>
                         <a class="collapse-item" href="{{ route('productos.index') }}">Listado</a>
                     </div>
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Categoria:</h6>
+                        <a class="collapse-item" href="{{ route('categorias.create') }}">Crear</a>
+                        <a class="collapse-item" href="{{ route('categorias.index') }}">Listado</a>
+                    </div>
                 </div>
             </li>
 
