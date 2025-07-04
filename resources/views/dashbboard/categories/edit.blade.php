@@ -47,8 +47,8 @@
                                 <div class="form-group">
                                     <label for="">Estado<span class="text-danger">*</span></label>
                                     <select name="status" id="">
-                                        <option value="0" {{$category->status == 1 ? 'selected' : ''}}>No disponible</option>
-                                        <option value="1" {{$category->status == 0 ? 'selected' : ''}}>Disponible</option>
+                                        <option value="0" {{$category->status == 0 ? 'selected' : ''}}>No disponible</option>
+                                        <option value="1" {{$category->status == 1 ? 'selected' : ''}}>Disponible</option>
                                     </select>
                                 </div>
                             </div>
